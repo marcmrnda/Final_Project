@@ -4,17 +4,24 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+.navbar{
     background-color: #13072E;
-    
-
 }
 
-
+.all {
+    background-color: #13072E;
+}
 .welcome{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    background: linear-gradient(130deg, #13072E, #3f2182, #3f2182);
     padding: 10px 10px 10px 40px;
+    height: 800px;
+    border-radius: 15px;
+    margin: 20px 20px 25px 25px;
+    border: white solid 1px;
 }
 
 .intro{
@@ -24,6 +31,8 @@
     position: relative;
     top: 200px;
     padding: 10px 10px 0 5px;
+    
+    
 
 }
 
@@ -64,4 +73,30 @@
     color: transparent;
     position: absolute;
     left: 455px;
+}
+
+.Portfolio{
+    position: absolute;
+    color: black;
+    top: 250px;
+    left: 20px;
+    background-color:#BB8FCE;
+    font-size: larger;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    width: 170px;
+}
+
+.About{
+    position: absolute;
+    color: #BB8FCE;
+    top: 250px;
+    left: 240px;
+    background-color:transparent;
+    font-size: larger;
+    border-color: #BB8FCE;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    width: 170px;
 }
