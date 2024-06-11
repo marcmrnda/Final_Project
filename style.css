@@ -82,7 +82,7 @@
     left: 20px;
     background-color:#BB8FCE;
     font-size: larger;
-    border: none;
+    border: 1px solid white ;
     border-radius: 6px;
     padding: 5px 5px 5px 5px;
     width: 170px;
@@ -105,14 +105,29 @@
     position: absolute;
     top: 430px;
     left: 20px;
+    transition: all 0.3s ease;
+
 
 }
 
 .socialmedia a{
-    margin-right: 20px ;
-    background-color: transparent;
-    border: 1px solid;
-    border-radius: 120px;
-    padding: 5px 10px 10px 10px ;
+    display: inline-block;
+    height: 50px;
+    width: 50px;
     position: relative;
+    bottom: 20px;
+    text-align: center;
+    background-color:#3f2182;
+    border-radius: 50%;
+    margin: 0 30px 10px 0;
+    line-height: 50px;
+    margin-top: 10px;
+    transition: all 0.5s ease;
+    font-size: x-large;
+}
+
+
+.socialmedia a:hover{
+    background-color:grey;
+    transform: rotateY(360deg);
 }
