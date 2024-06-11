@@ -9,7 +9,7 @@ setTimeout(() => {
     text.textContent = "What?";
 },2000);
 setTimeout(() => {
-    text.textContent = "Marc Miranda";
+    text.textContent = "Slim Shady";
 },4000);
   
 
