@@ -11,6 +11,7 @@
 
 .all {
     background-color: #13072E;
+    height: 1000px;
 }
 .welcome{
     display: flex;
@@ -130,4 +131,21 @@
 .socialmedia a:hover{
     background-color:grey;
     transform: rotateY(360deg);
+}
+
+img{
+    position: absolute;
+    left: 900px;
+    top: -110px;
+    border-radius: 150px;
+    width: 700px;
+    height: 500px;
+    filter: drop-shadow(10px 10px 10px #000000);    
+}
+
+.navbar section{
+    width: 10vh;
+    height: 10vh;
+    color: aliceblue;
+    
 }
