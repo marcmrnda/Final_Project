@@ -18,7 +18,7 @@
     flex-direction: row;
     background: linear-gradient(130deg, #13072E, #3f2182, #3f2182);
     padding: 10px 10px 10px 40px;
-    height: 800px;
+    height: 700px;
     border-radius: 15px;
     margin: 20px 20px 25px 25px;
     border: white solid 1px;
@@ -99,4 +99,20 @@
     border-radius: 6px;
     padding: 5px 5px 5px 5px;
     width: 170px;
+}
+
+.socialmedia{
+    position: absolute;
+    top: 430px;
+    left: 20px;
+
+}
+
+.socialmedia a{
+    margin-right: 20px ;
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 120px;
+    padding: 5px 10px 10px 10px ;
+    position: relative;
 }
