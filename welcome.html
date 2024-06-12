@@ -14,29 +14,36 @@
 <body>
     <div class="all">
         <div class="navbar">
-            <section>
+            <header class="logo">
+                <a href="#">Logo</a>
+            </header>
+            <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">About Me</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </section>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">About Me</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
         </div>
             <div class="welcome">
                 <div class="intro">
-                    <img src="./OIP.jpg" alt="">
-                    <h1 class="display-2 hi mx-3">Hi My Name is:</h1>
-                    <h1 class="display-2 name"></h1>
-                    <h2 class="display-6 occup">2nd Year Computer Science Student</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo facilis enim cum <br> eveniet deserunt dolorem sint voluptatem <br> iusto praesentium saepe.</p>
-                    <button class="Portfolio">My Portfolio</button>
-                    <button class="About">About Me</button>
-                    <div class="socialmedia">
-                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#"><i class="fa-brands fa-github"></i></a> 
+                    <img src="./448241620_1626747404561195_4319971993671918412_n.jpg" alt="">
+                    <h1 class="hi">こんにちは</h1>
+                    <h1 class="hii">こんにちは</h1>
+
+                    <div class="intro2">
+                        <h1 class="display-4 my mx-3">My Name is: <span class="display-2 name"></span></h1>
+                        <h2 class="display-4 occup">2nd Year Computer Science Student</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo facilis enim cum <br> eveniet deserunt dolorem sint voluptatem <br> iusto praesentium saepe.</p>
+                        <button class="Portfolio">My Portfolio</button>
+                        <button class="About">About Me</button>
+                        <div class="socialmedia">
+                            <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-github"></i></a> 
+                        </div>
                     </div>
                 </div>
             </div>
@@ -47,4 +54,22 @@
 <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
 <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
 <script src="script.js"></script>
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+
+var typed = new Typed(".name",{
+    strings: ["What?","Who?","Marc Miranda"],
+    typespeed: 100000,
+    backspeed: 100000,
+    loop: true
+});
+
+var typed = new Typed(".hi",{
+    strings: ["マーク ミランダ","海賊王に俺はなる","愛してるよキム"],
+    typespeed: 100000,
+    backspeed: 100000,
+    loop: true
+});
+
+</script>
 </html>

@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
 *{
 
     margin: 0;
@@ -11,7 +13,8 @@
 
 .all {
     background-color: #13072E;
-    height: 1000px;
+    min-height: 100vh;
+    overflow: hidden;
 }
 .welcome{
     display: flex;
@@ -22,7 +25,7 @@
     height: 700px;
     border-radius: 15px;
     margin: 20px 20px 25px 25px;
-    border: white solid 1px;
+    box-shadow: 1px 1px 2px 2px white;
 }
 
 .intro{
@@ -33,79 +36,102 @@
     top: 200px;
     padding: 10px 10px 0 5px;
     
-    
-
 }
 
-.intro h1 {
-    text-align: left;
-    font-family:fantasy;
-
+.intro2{
+    position: absolute;
+    width: 900px;
 }
 
 .hi{
-    color: aliceblue;
+    font-family: "Noto Sans JP", sans-serif;
+    color: beige;
+    position: relative;
+    font-size: xxx-large;
+    width: 75px;
+    bottom: 80px;
+    left: 0;
 }
 
+.hii{
+    font-family: "Noto Sans JP", sans-serif;
+    color: beige;
+    position: relative;
+    width: 280px;
+    bottom: 35px;
+    left: 25px;
+}
 
+.my{
+    color: aliceblue;
+    position: absolute;
+    width: 1200px;
+    left: 95px;
+    font-family: "Rubik Doodle Shadow", system-ui;
+    
+}
 
 .intro h2 {
     text-align: left;
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: relative;
-    top:90px;
-    right: 435px;
-    color: #5DADE2;
+    font-family: "Dongle", sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 73px;
+    left: 109px;
+    color: beige;
 }
 
 .intro p{
     color: aliceblue;
     text-align: left;
-    font-family: cursive;
+    font-family: "Dongle", sans-serif;
+
+    font-size: xx-large;
+    line-height: 25px;
     position: absolute;
-    top: 160px;
-    left: 20px;
+    top: 130px;
+    left: 111px;
 }
 
 .name{
-    background-image: url(./R\ \(1\).jpg);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    position: absolute;
-    left: 455px;
+    color: beige;
+
 }
 
 .Portfolio{
+    font-family: "Dongle", sans-serif;
     position: absolute;
-    color: black;
-    top: 250px;
-    left: 20px;
+    color: beige;
+    font-weight: bold;
+    top: 219px;
+    left: 110px;
     background-color:#BB8FCE;
-    font-size: larger;
-    border: 1px solid white ;
+    font-size: xx-large;
+    border: 1px solid #BB8FCE ;
     border-radius: 6px;
-    padding: 5px 5px 5px 5px;
+    padding: 1px 1px 1px 1px;
     width: 170px;
 }
 
 .About{
+    font-family: "Dongle", sans-serif;
     position: absolute;
+    font-weight: bold;
     color: #BB8FCE;
-    top: 250px;
-    left: 240px;
+    top: 220px;
+    left: 320px;
     background-color:transparent;
-    font-size: larger;
-    border-color: #BB8FCE;
+    font-size: xx-large;
+    border: 1px solid #BB8FCE;
     border-radius: 6px;
-    padding: 5px 5px 5px 5px;
+    padding: 1px 1px 1px 1px;
     width: 170px;
 }
 
 .socialmedia{
     position: absolute;
-    top: 430px;
-    left: 20px;
+    top: 400px;
+    left: 110px;
     transition: all 0.3s ease;
 
 
@@ -120,7 +146,7 @@
     text-align: center;
     background-color:#3f2182;
     border-radius: 50%;
-    margin: 0 30px 10px 0;
+    margin: 0 60px 10px 0;
     line-height: 50px;
     margin-top: 10px;
     transition: all 0.5s ease;
@@ -129,23 +155,35 @@
 
 
 .socialmedia a:hover{
-    background-color:grey;
+    background-color:aliceblue;
     transform: rotateY(360deg);
 }
 
 img{
     position: absolute;
-    left: 900px;
-    top: -110px;
-    border-radius: 150px;
-    width: 700px;
-    height: 500px;
-    filter: drop-shadow(10px 10px 10px #000000);    
+    left: 1010px;
+    top: -165px;
+    border-radius: 100%;
+    width: 650px;
+    height: 600px;
+    filter: drop-shadow(10px 10px 10px black);    
 }
 
-.navbar section{
-    width: 10vh;
-    height: 10vh;
+.navbar nav{
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: row;
+}
+.navbar nav ul{
+    list-style-type: none;
+}
+
+.navbar nav ul li{
+    display: inline-block;
+    padding: 10px 10px 10px 10px;
+}
+
+.navbar nav ul li a{
+    text-decoration: none;
     color: aliceblue;
-    
 }
