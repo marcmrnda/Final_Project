@@ -1,31 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
-*{
 
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.navbar{
-    background-color: #13072E;
-}
 
 .all {
     background-color: #13072E;
-    min-height: 100vh;
+    height: 100vh;
     overflow: hidden;
 }
+
 .welcome{
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     background: linear-gradient(130deg, #13072E, #3f2182, #3f2182);
     padding: 10px 10px 10px 40px;
-    height: 700px;
+    height: 75vh;
+    position: relative;
+    top: 60px;
     border-radius: 15px;
     margin: 20px 20px 25px 25px;
-    box-shadow: 1px 1px 2px 2px white;
+    margin-top: 73px;
+    
 }
 
 .intro{
@@ -33,6 +34,7 @@
     flex-wrap: wrap;
     flex-direction: row;
     position: relative;
+    height: 100vh;
     top: 200px;
     padding: 10px 10px 0 5px;
     
@@ -169,21 +171,30 @@ img{
     filter: drop-shadow(10px 10px 10px black);    
 }
 
-.navbar nav{
-    display: flex;
-    flex-wrap: wrap;
-    flex-flow: row;
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0px 100px;
 }
-.navbar nav ul{
+
+header nav ul{
     list-style-type: none;
+    display: flex;
+    justify-content: end;
+    align-items: center    
 }
 
-.navbar nav ul li{
+header nav ul li{
     display: inline-block;
-    padding: 10px 10px 10px 10px;
+    margin: 10px;
 }
 
-.navbar nav ul li a{
+header nav ul li a{
     text-decoration: none;
     color: aliceblue;
+    font-family: "Dongle", sans-serif;
+    font-size: 40px;
+
 }
