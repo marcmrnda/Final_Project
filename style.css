@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -25,7 +25,7 @@
     top: 60px;
     border-radius: 15px;
     margin: 20px 20px 25px 25px;
-    margin-top: 73px;
+    margin-top: 90px;
     
 }
 
@@ -47,7 +47,7 @@
 
 .hi{
     font-family: "Noto Sans JP", sans-serif;
-    color: beige;
+    color: whitesmoke;
     position: relative;
     font-size: xxx-large;
     width: 75px;
@@ -57,7 +57,7 @@
 
 .hii{
     font-family: "Noto Sans JP", sans-serif;
-    color: beige;
+    color: white;
     position: relative;
     width: 280px;
     bottom: 35px;
@@ -78,25 +78,25 @@
     font-family: "Dongle", sans-serif;
     font-weight: bold;
     position: absolute;
-    top: 73px;
+    top: 76px;
     left: 109px;
-    color: beige;
+    color: gold;
 }
 
 .intro p{
     color: aliceblue;
     text-align: left;
     font-family: "Dongle", sans-serif;
-
     font-size: xx-large;
     line-height: 25px;
     position: absolute;
-    top: 130px;
+    top: 140px;
     left: 111px;
+    overflow: hidden;
 }
 
 .name{
-    color: beige;
+    color: yellow;
 
 }
 
@@ -105,29 +105,41 @@
     position: absolute;
     color: beige;
     font-weight: bold;
-    top: 219px;
+    top: 240px;
     left: 110px;
-    background-color:#BB8FCE;
+    background-color:#A569BD;
     font-size: xx-large;
     border: 1px solid #BB8FCE ;
     border-radius: 6px;
     padding: 1px 1px 1px 1px;
     width: 170px;
+    transition: all .3s ease-in-out;
+}
+
+.Portfolio:hover{
+    background-color: transparent;
+    color: #BB8FCE;
 }
 
 .About{
     font-family: "Dongle", sans-serif;
     position: absolute;
     font-weight: bold;
-    color: #BB8FCE;
-    top: 220px;
+    color: #A569BD;
+    top: 240px;
     left: 320px;
     background-color:transparent;
     font-size: xx-large;
-    border: 1px solid #BB8FCE;
+    border: 1px solid #A569BD;
     border-radius: 6px;
     padding: 1px 1px 1px 1px;
     width: 170px;
+    transition: all .3s ease-in-out;
+}
+
+.About:hover{
+    background-color: #A569BD;
+    color: beige;
 }
 
 .socialmedia{
@@ -135,7 +147,6 @@
     top: 400px;
     left: 110px;
     transition: all 0.3s ease;
-
 
 }
 
@@ -161,40 +172,130 @@
     transform: rotateY(360deg);
 }
 
-img{
+.profilepic{
     position: absolute;
-    left: 1010px;
+    left: 1015px;
     top: -165px;
     border-radius: 100%;
     width: 650px;
     height: 600px;
     filter: drop-shadow(10px 10px 10px black);    
 }
-
 header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0px 100px;
+    padding: 0px 10px;
+}
+
+.logo{
+    width: 300px;
+   
+    position: absolute;
+    top: -80px;
 }
 
 header nav ul{
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: end;
-    align-items: center    
+    position: absolute;
+    top: 37.5px;
+    right: 40px;
 }
 
 header nav ul li{
-    display: inline-block;
     margin: 10px;
 }
 
 header nav ul li a{
     text-decoration: none;
-    color: aliceblue;
-    font-family: "Dongle", sans-serif;
-    font-size: 40px;
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-size: 25px;
+    letter-spacing: 2.5px;
+}
+
+.home::after{
+    content: "";
+    background-color: beige;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 39px;
+    transition: all 0.5s ease;
 
 }
+
+.home:hover::after{
+    width: 15%;
+}
+
+.portfolio::after{
+    content: "";
+    background-color: beige;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 146px;
+    transition: all 0.5s ease;
+}
+
+.portfolio:hover::after{
+    width: 21%;
+}
+
+.about::after{
+    content: "";
+    background-color: beige;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 290px;
+    transition: all 0.5s ease;
+}
+
+.about:hover::after{
+    width: 24%;
+}
+
+.contact::after{
+    content: "";
+    background-color: beige;
+    width: 0;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 450px;
+    transition: all 0.5s ease;
+}
+
+.contact:hover::after{
+    width: 21%;
+}
+
+header nav ul li a:hover{
+    text-decoration: none;
+    color: gold;
+}
+
+.dropdown{
+    color: aliceblue;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    position: absolute;
+    top: 55px;
+    right: 40px;
+    font-size: xx-large;
+    visibility: hidden;
+}
+
