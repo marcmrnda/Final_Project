@@ -20,8 +20,23 @@
                     <li><a class="portfolio" href="#">Portfolio</a></li>
                     <li><a class="about" href="#">About Me</a></li>
                     <li><a class="contact" href="#">Contact</a></li>
+                    <li><a class="login" href="#">Login</a></li>
+                    <li><a class="register" href="#">Register</a></li>
                 </ul>
             </nav>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="dropdown open">
+                <ul>
+                    <li><a  href="#">Home</a></li>
+                    <li><a  href="#">Portfolio</a></li>
+                    <li><a  href="#">About Me</a></li>
+                    <li><a  href="#">Contact</a></li>
+                    <li><a  href="#">Login</a></li>
+                    <li><a  href="#">Register</a></li>
+                </ul>
+            </div>
             </header>
 
             <div class="welcome">
@@ -68,5 +83,20 @@ var typed = new Typed(".hi",{
     loop: true
 });
 
+</script>
+
+<script>
+    const toggleBtn = document.querySelector(".toggle_btn");
+    const toggleBtnIcon = document.querySelector(".toggle_btn i")
+    const dropdownMenu = document.querySelector(".dropdown")
+
+    toggleBtn.onclick = function() {
+        dropdownMenu.classList.toggle("open")
+
+        toggleBtnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+
+    }
 </script>
 </html>
