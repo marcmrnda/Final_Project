@@ -167,7 +167,7 @@
     left: 100px;
 }
 
-.firstMain .portfolio{
+.firstMain .contact{
     position: absolute;
     top: 640px;
     left: 125px;
@@ -182,29 +182,9 @@
     font-weight: bold;
 }
 
-.firstMain .portfolio:hover{
+.firstMain .contact:hover{
     background-color: gold;
     color: #A569BD;
-}
-
-.firstMain .contact{
-    position: absolute;
-    top: 640px;
-    left: 300px;
-    z-index: 1;
-    width: 150px;
-    padding: 10px 10px 10px 10px;
-    border-radius: 30px;
-    border-color: #A569BD;
-    background-color: transparent;
-    color: #A569BD;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-}
-
-.firstMain .contact:hover{
-    background-color: #A569BD;
-    color: gold;
 }
 
 .firstMain .socialmedia{
@@ -247,7 +227,7 @@
     height: 100vh;
     font-family: "Poppins", sans-serif;
     transition: 0.25s;
-    background-image: url(./7333590.gif);
+    background-image: url(./2825704.gif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -318,6 +298,11 @@
     background-size: auto 100%;
 }
 
+.cards .card.active:hover {
+    flex-grow: 1000;
+    background-size: auto 100%;
+}
+
 .cards .card:not(.active) .label{
     bottom: 10px;
     left: 10px;
@@ -329,7 +314,7 @@
     left: 0;
     right: 0;
     height: 100px;
-    background: white
+    background: transparent;
 }
 
 .cards .card.active .info {
