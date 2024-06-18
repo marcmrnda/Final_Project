@@ -48,44 +48,62 @@
     </div>
     
     <section class="secondMain">
-        <div class="card">
-            <img class="background" src="./Untitled design.png" alt="">
-            <div class="card-content">
-                <div class="profile-image">
-                    <svg xmlns="http://www.w3.org/2000/svg"> </svg>
+
+        <div class="cards">
+
+        <div class="card active" style="background-image: url(./Untitled\ design.png);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
                 </div>
-                <h1 class="card-title">LAYA</h1>
+                <div class="info">
+                    <div class="title">LAYA</div>
+                        <div>Artificial Intelligence Law Assistant</div>
+                </div>
             </div>
-            <div class="backdrop"></div>
         </div>
 
-        <div class="card">
-            <img class="background" src="./Untitled design.png" alt="">
-            <div class="card-content">
-                <div class="profile-image">
-                    <svg xmlns="http://www.w3.org/2000/svg"> </svg>
+        <div class="card" style="background-image: url(./Untitled\ design.png);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
                 </div>
-                <h1 class="card-title">IPAWS</h1>
-            </div>
-            <div class="backdrop"></div>
-        </div>
-        <div class="card">
-            <img class="background" src="./Untitled design.png" alt="">
-            <div class="card-content">
-                <div class="profile-image">
-                    <svg xmlns="http://www.w3.org/2000/svg"> </svg>
+                <div class="info">
+                    <div class="title">IPAWS</div>
+                        <div>Artificial Intelligence Pet Healthcare Companion</div>
                 </div>
-                <h1 class="card-title">IShare</h1>
             </div>
-            <div class="backdrop"></div>
         </div>
+
+        <div class="card" style="background-image: url(./Untitled\ design.png);">
+            <div class="shadow"></div>
+            <div class="label">
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <div class="info">
+                    <div class="title">IShare</div>
+                        <div>Booking System Using Students' Skills</div>
+                </div>
+            </div>
+        </div>
+    </div>
     </section>
 
 </body>
 
 <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
 <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="./typed.js-2.1.0/dist/typed.umd.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+<script>
+    $(".card").click(function() {
+        $(".card").removeClass("active");
+        $(this).addClass("active");
+    });
+</script>
 <script>
 
 var typed = new Typed(".hi",{
