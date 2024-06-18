@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./aos-master/dist/aos.css">
 </head>
 <body>
     <div class="all">
@@ -27,9 +28,12 @@
             </nav>
         </header>
 
-        <section class="firstMain">
+
+        <section class="firstMain"  data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1500">
             <article>
-                <h1 class="display-2 hello">こんにちは</h1>
+                <h1 class="display-2 hello" data-aos="fade-down" data-aos-delay="300">こんにちは</h1>
                 <h1 class="display-1 name">Marc Miranda</h1>
                 <h1 class="display-3 hi"></h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat molestias voluptatum consequatur esse nulla rerum, officiis architecto sit! Repudiandae, alias.</p>
@@ -47,7 +51,7 @@
         </section>
     </div>
     
-    <section class="secondMain" id="portfolio">
+    <section class="secondMain" id="portfolio" data-aos="fade-up">
 
         <div class="cards">
 
@@ -89,8 +93,11 @@
                 </div>
             </div>
         </div>
+
     </div>
     </section>
+
+    <footer></footer>
 
 </body>
 
@@ -98,6 +105,35 @@
 <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
 <script src="./typed.js-2.1.0/dist/typed.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+<script src="./aos-master/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+// You can also pass an optional settings object
+// below listed default settings
+AOS.init({
+  // Global settings:
+  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
+  initClassName: 'aos-init', // class applied after initialization
+  animatedClassName: 'aos-animate', // class applied on animation
+  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+  
+
+  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+  offset: 120, // offset (in px) from the original trigger point
+  delay: 0, // values from 0 to 3000, with step 50ms
+  duration: 400, // values from 0 to 3000, with step 50ms
+  easing: 'ease', // default easing for AOS animations
+  once: false, // whether animation should happen only once - while scrolling down
+  mirror: false, // whether elements should animate out while scrolling past them
+  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+
+});
+</script>
 <script>
     $(".card").click(function() {
         $(".card").removeClass("active");
@@ -107,19 +143,11 @@
 <script>
 
 var typed = new Typed(".hi",{
-    strings: ["A Striving Student","A Future Developer ","A Future Programmer"],
+    strings: ["A Striving Student","A Future Developer ","A Future Programmer", "A Future Robot"],
     typespeed: 10,
     backspeed: 10,
     loop: true
 });
-
-var typed = new Typed(".hii",{
-    strings: ["マーク ミランダ","海賊王に俺はなる","愛してるよキム"],
-    typespeed: 10,
-    backspeed: 10,
-    loop: true
-});
-
 </script>
 
 <script>

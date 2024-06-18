@@ -28,8 +28,8 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: end;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo img{
@@ -247,7 +247,10 @@
     height: 100vh;
     font-family: "Poppins", sans-serif;
     transition: 0.25s;
-    background: #333;
+    background-image: url(./7333590.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: white; 
 }
 
