@@ -256,6 +256,7 @@
     background-color: white;
     border-radius: 50%;
     color: #13072E;
+    transition: all 2s ease-in-out;
 } 
 
 .cards .card .label .info {
@@ -275,7 +276,7 @@
     background-size: auto 150%;
     background-position: center;
     cursor: pointer;
-    transition: 0.5s var(--cb);
+    transition: all 0.5s ease-in-out;
     border-radius: 30px;
 }
 
@@ -296,12 +297,9 @@
 .cards .card.active {
     flex-grow: 1000;
     background-size: auto 100%;
+    transition: all 3s ease-in-out;
 }
 
-.cards .card.active:hover {
-    flex-grow: 1000;
-    background-size: auto 100%;
-}
 
 .cards .card:not(.active) .label{
     bottom: 10px;
@@ -314,7 +312,7 @@
     left: 0;
     right: 0;
     height: 100px;
-    background: transparent;
+    background: beige;
 }
 
 .cards .card.active .info {
@@ -325,6 +323,34 @@
     opacity: 0;
 }
 
+.cat {
+    width: 100%;
+    height: 115px;
+    z-index: 1;
+}
+ 
+.catgif {
+    max-width: 10%;
+    max-height: 50%;
+    width: 120px;
+    height: 100px;
+    animation: linear infinite 30s SlideIn;
+}
+ 
+@keyframes SlideIn {
+    0% {
+        transform: translate(92vw, 0) rotateY(180deg);
+    }
+    50% {
+        transform: translate(0, 0) rotateY(180deg);
+    }
+    51% {
+        transform: translate(0, 0) rotateY(0);
+    }
+    100% {
+        transform: translate(92vw, 0) rotateY(0);
+    }
+}
 
 
 

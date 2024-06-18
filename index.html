@@ -17,7 +17,7 @@
             <nav>
                 <ul>
                     <div class="navbar">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#home">Home</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#">About Me</a></li>
                     <li><a href="#">Contact</a></li>
@@ -26,27 +26,30 @@
                     <li><a class="registerbt" href="#">Register</a></li>
                 </ul>
             </nav>
+            <div class="cat">
+                <img class="catgif" src="./14-40-05-944_512.webp" alt="">
+            </div>
         </header>
 
 
-        <section class="firstMain"  data-aos="fade-up">
+        <section class="firstMain" id="home" data-aos="fade-up">
             <article>
                 <h1 class="display-2 hello">こんにちは</h1>
                 <h1 class="display-1 name">Marc Miranda</h1>
                 <h1 class="display-3 hi"></h1>
                 <p data-aos="fade-down">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat molestias voluptatum consequatur esse nulla rerum, officiis architecto sit! Repudiandae, alias.</p>
-                <button class="contact">Contact Me</button>
+                <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMVkvRlkwnrFFxvGjMmLTBWSvjHzHrsztNZtPRGzRRFcJldVXPXpnVGCGDxFfRlLFqVMWJD"><button class="contact">Contact Me</button></a>
                 <div class="socialmedia">
-                    <a href="https://www.facebook.com/marclouisse.miranda"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.instagram.com/miranda_marc/"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/marcmrnda"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/marclouisse.miranda" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/miranda_marc/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/marcmrnda" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
                 <img class="profilepic" src="./448241620_1626747404561195_4319971993671918412_n.jpg" alt="">
             </article>
         </section>
     </div>
-    
+
     <section class="secondMain" id="portfolio" data-aos="fade-up">
 
         <div class="cards">
@@ -59,7 +62,7 @@
                 </div>
                 <div class="info">
                     <div class="title">LAYA</div>
-                        <div>Artificial Intelligence Law Assistant</div>
+                        <div class="description">Artificial Intelligence Law Assistant</div>
                 </div>
             </div>
         </div>
@@ -103,7 +106,7 @@
     </section>
 
     <footer>
-
+       
     </footer>
 
 
@@ -151,7 +154,7 @@ AOS.init({
 <script>
 
 var typed = new Typed(".hi",{
-    strings: ["A Striving Student","A Future Developer ","A Future Programmer", "A Future Robot"],
+    strings: ["A Striving Student","A Future Developer ","A Future Programmer", "A Future Cyborg"],
     typespeed: 10,
     backspeed: 10,
     loop: true
