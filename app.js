@@ -43,3 +43,34 @@ var typed = new Typed(".hi",{
     loop: true
 });
 
+
+// script.js
+// script.js
+document.addEventListener('DOMContentLoaded', function() {
+  const items = document.querySelectorAll('.container');
+  const timeline = document.querySelector('.timeline');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+
+        // Reset the animation
+        timeline.classList.remove('line-visible');
+        setTimeout(() => {
+          timeline.classList.add('line-visible');
+        }, 100); // Add a small delay to allow the animation to reset
+
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  items.forEach(item => {
+    observer.observe(item);
+  });
+});
+
+
+
