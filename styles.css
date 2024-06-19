@@ -154,14 +154,13 @@
     right: 150px;
     z-index: 1;
     border-radius: 100%;
-    box-shadow: 5px 5px 5px 5px rgba(255,255,255);
+    box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
     transition: all 0.3s ease-in-out;
 
 }
 
 .firstMain img:hover{
-    transform: scale(1.1);
-    box-shadow: 10px 10px 10px 10px rgba(255,255,255);
+    transform: scale(1.1)
     
 }
 
@@ -636,6 +635,128 @@
     height: 100vh;
 }
 
+.fourthMain .containers{
+    width: 40%;
+    height: 70vh;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #A569BD;
+    position: relative;
+    left: -195px;
+    top: 35px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+
+.fourthMain h2{
+    font-family: "Micro 5", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: wheat;
+    top: -355px;
+    left: 375px;
+    color: #884EA0;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+
+}
+
+.skills{
+    position: relative;
+    top: 100px;
+    left: 50px;
+    width: 100%;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.skill-name{
+    font-family: "Micro 5", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+    color: #fff;
+   
+}
+
+.skill-bar{
+    height: 20px;
+    background: #cacaca;
+    border-radius: 8px;
+}
+
+.skill-per{
+    height: 20px;
+    background-color: #0fbcf9;
+    border-radius: 8px;
+    width: 0;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.skill-per::before{
+    content: attr(per);
+    position: absolute;
+    padding: 4px 6px;
+    background-color: #000;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 4px;
+    top: -35px;
+    right: 0;
+    transform: translateX(50%);
+}
+
+.skill-per::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #000;
+    top: -16px;
+    right: 0;
+    transform: translateX(50%) rotate(45deg);
+    border-radius: 2px;
+}
+
+.skill-per.prog1{
+    background: firebrick;
+}
+
+.skill-per.prog2{
+    background: royalblue;
+}
+
+.skill-per.prog3{
+    background: greenyellow;
+}
+
+.skill-per.prog4{
+    background: gold;
+}
+
+.skill-per.prog5{
+    background: pink;
+}
 
 
 
@@ -676,6 +797,8 @@
     }
     
 }
+
+
 .container:nth-child(1){
     animation-delay: 1s;
 }
