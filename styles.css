@@ -146,7 +146,7 @@
     
 }
 
-.firstMain img{
+.firstMain .profilepic{
     width: 700px;
     height: 700px;
     position: absolute;
@@ -159,8 +159,8 @@
 
 }
 
-.firstMain img:hover{
-    transform: scale(1.1)
+.firstMain .profilepic:hover{
+    transform: scale(1.1);
     
 }
 
@@ -759,8 +759,67 @@
 }
 
 
+.fifthMain {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./backgrounds/uwwte8wps4h91.gif) !important;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+.fifthMain .display-1{
+    font-family: "Micro 5", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: wheat;
+    top: -355px;
+    left: 393px;
+    color: #884EA0;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+    
+}
+
+.containersss{
+    width: 40%;
+    height: 70vh;
+    padding: 20px 30px;
+    background-color: white;
+    border-radius: 10px;
+    border: 2px solid #A569BD;
+    position: relative;
+    left: -120px;
+    top: 40px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+}
 
 
+
+  footer{
+    margin-top: -50px;
+    margin-bottom: -50px;
+    background-image: url(./backgrounds/2825896.gif);
+    aspect-ratio:var(--line-height);
+  }
 @keyframes SlideIn {
     0% {
         transform: translate(92vw, 0) rotateY(180deg);
@@ -957,6 +1016,25 @@
 
 }
 
+@media (max-width: 991px) {
+    section {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    
+    .row {
+      flex-direction: column;
+    }
+    
+    .contact-info {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+    
+    .contact-form {
+      width: 100%;
+    }
+  }
 
 
 
