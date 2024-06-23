@@ -34,8 +34,6 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
     position: fixed;
 
 }
@@ -802,14 +800,147 @@
     border-radius: 12px;
 }
 
-
-
   footer{
     margin-top: -50px;
     margin-bottom: -50px;
     background-image: url(./backgrounds/2825896.gif);
     aspect-ratio:var(--line-height);
   }
+
+
+.editall {
+    background-image: url(./backgrounds/wp2757832.gif);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    overflow: scroll;
+}
+
+/* Card Container */
+.card1 {
+    width: 95%;
+    height: 80vh;
+    padding: 20px 30px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid #A569BD;
+    position: relative;
+    top: 110px;
+    left: 55px;
+    font-size: 15px;
+    backdrop-filter: blur(5px) saturate(180%);
+    -webkit-backdrop-filter: blur(5px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 10px 10px 20px #babecc, -10px -10px 20px #ffffff;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+}
+
+/* Tab Links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Tab Content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+/* Table Styles */
+.table {
+    text-align: center;
+    font-size: larger;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .card1 {
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: auto;
+        top: 100px;
+        padding: 15px 20px;
+    }
+
+    .tablink {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .tabcontent {
+        margin-top: 170px;
+        padding: 60px 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .card1 {
+        top: 100px;
+        left: 0;
+        height: auto;
+        padding: 10px 15px;
+        box-shadow: none;
+    }
+
+    .tablink {
+        font-size: 14px;
+    }
+
+    .tabcontent {
+        padding: 30px 10px;
+    }
+
+    .table thead {
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 1rem;
+    }
+    .table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 1rem;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+
+
+
 @keyframes SlideIn {
     0% {
         transform: translate(92vw, 0) rotateY(180deg);
@@ -1028,6 +1159,7 @@
 
 
 
+
 }
 
 
@@ -1222,7 +1354,8 @@
     .contact-form {
       width: 100%;
     }
-  }
+
+}
 
 
 @media (min-width: 769px) and (max-width:1439px) {
@@ -1379,7 +1512,7 @@
         top: -10px;
        
       }
-  
+
   }
 
   
@@ -1404,10 +1537,6 @@
         top: -110px;
     }
 
-    .firstMain article{
-        
-
-    }
 }
 
 
