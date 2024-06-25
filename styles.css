@@ -232,6 +232,7 @@
     position: absolute;
     top: 480px;
     left: 100px;
+    overflow: scroll;
 }
 
 .firstMain .contact{
@@ -886,6 +887,7 @@
     width: 100%;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: white;
 }
 
 .form-row button{
@@ -900,6 +902,21 @@
     padding: 14px 16px;
     font-size: 17px;
     width: 100%;
+}
+
+.form-row h1{
+    font-family: "Micro 5", sans-serif;
+    color: #A569BD;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
 }
 
 .allLogin{
@@ -1057,6 +1074,110 @@
       0 0 102px #884EA0,
       0 0 151px #884EA0;
 }
+
+.container1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    background: url(./backgrounds/qb5yyy278isz.webp) no-repeat center;
+    background-size: cover;
+    
+}
+
+.container1 h3{
+    font-family: "Micro 5", sans-serif;
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -30px;
+    color: #884EA0;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+
+}
+
+.cards{
+    width: 30vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: transparent;
+    border-radius: 10px;
+    border: 3px solid #A569BD;
+    font-size: 15px;
+    backdrop-filter: blur(8px);
+    
+}
+
+.cards .card-header{
+    background-color: #A569BD;
+    color: white;
+    font-family: "Micro 5", sans-serif;
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+
+}
+
+.cards .card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.cards .card-body .form-group{
+   width: 200%;
+}
+
+.cards .card-body  button {
+    font-family: "Micro 5", sans-serif;
+    font-size: 30px;
+    width: 120%;
+    position: relative;
+    top: 20px;
+    height: 10%;
+    color: #884EA0;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+      background: transparent;
+      border: 3px solid #A569BD;
+      margin-bottom: 10px;
+    
+}
+
+.cards .card-body  button:hover {
+    background-color: gold;
+    color: white;
+}
+
+
+
 
 
 @keyframes SlideIn {
@@ -1669,6 +1790,12 @@
         padding: 15px 20px;
     }
 
+    .cards{
+        height: 70vh;
+        width: 50vw;
+
+    }
+
     .containers1{
         left: 0;
         margin: auto;
@@ -1728,6 +1855,20 @@
         padding: 10px 15px;
         box-shadow: none;
     }
+
+    .cards{
+        height: 70vh;
+        width: 80vw;
+    }
+
+    .cards .card-body .form-group{
+        width: 100%;
+     }
+
+     .cards .card-body button{
+        width: 100%;
+     }
+
 
     .tablink {
         font-size: 14px;
