@@ -870,75 +870,193 @@
     width: 100%;
 }
 
-/* Responsive Styles */
-@media (max-width: 1200px) {
-    .card1 {
-        left: 0;
-        margin: auto;
-        width: 100%;
-        height: auto;
-        top: 100px;
-        padding: 15px 20px;
-    }
-
-    .tablink {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        font-size: 16px;
-    }
-
-    .tabcontent {
-        margin-top: 170px;
-        padding: 60px 15px;
-    }
+.form-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 20px 30px;
+    background-color: transparent;
 }
 
-@media (max-width: 767.98px) {
+.form-group{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 
-    .card1 {
-        top: 100px;
-        left: 0;
-        height: auto;
-        padding: 10px 15px;
-        box-shadow: none;
-    }
+.form-row button{
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #A569BD;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 100%;
+}
 
-    .tablink {
-        font-size: 14px;
-    }
+.allLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background: url(./backgrounds/qb5yyy278isz.webp) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 
-    .tabcontent {
-        padding: 30px 10px;
-    }
+.containers1 h2{
+     font-family: "Micro 5", sans-serif;
+     font-size: xxx-large;
+     color: #A569BD;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+}
 
-    .table thead {
-        display: none;
-    }
-    .table, .table tbody, .table tr, .table td {
-        display: block;
-        width: 100%;
-    }
-    .table tr {
-        margin-bottom: 1rem;
-    }
-    .table td {
-        text-align: right;
-        padding-left: 50%;
-        position: relative;
-    }
-    .table td::before {
-        content: attr(data-label);
-        position: absolute;
-        left: 0;
-        width: 50%;
-        padding-left: 1rem;
-        font-weight: bold;
-        text-align: left;
-    }
+.containers1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 20%;
+    height: 50vh;
+    padding: 20px 30px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 3px solid #A569BD;
+    position: relative;
+    top: 40px;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    backdrop-filter: blur(8px);
+    
+}
+ 
+.containers1 .form-group{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.containers1 h2{
+    font-family: "Micro 5", sans-serif;
+    font-size: xxx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
+
+.containers1 .form-group input {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: transparent;
+    color: #FFFFFF;
+    border: none;
+    border-bottom: 3px solid #A569BD;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 100%;
+}
+
+.containers1 .form-group input::placeholder {
+    font-family: "Micro 5", sans-serif;
+    font-size: x-large;
+    color: white;
+    text-shadow:0 0 7px #A569BD,
+    0 0 10px #A569BD,
+    0 0 21px #A569BD;
+}
+
+.containers1 .buttonLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 14px 16px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+    font-family: "Micro 5", sans-serif;
+    font-size: xx-large;
+    color: white;
+    border: 2px solid #A569BD;
+    background-color: transparent;
+
+    
+}
+
+.containers1 .buttonLogin:hover {
+    background-color: gold;
+    color: white;
+}
+
+.containers1 small{
+    font-family: "Micro 5", sans-serif;
+    font-size: larger;
+    color: white;
+    text-shadow:0 0 7px #A569BD,
+    0 0 10px #A569BD,
+    0 0 21px #A569BD;
+}
+
+.containers1 small a{
+    font-family: "Micro 5", sans-serif;
+    font-size: larger;
+    color: #A569BD;
+    text-shadow:0 0 7px white,
+    0 0 10px white,
+    0 0 21px white;
+    text-decoration: none;
+}
+
+.containers1 small a:hover{
+    text-decoration: underline;
+    color: gold;
+}
+
+.allLogin .display-1{
+    font-family: "Micro 5", sans-serif;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 100px;
+    color: #884EA0;
+    font-weight: bolder;
+    text-shadow:
+      0 0 7px white,
+      0 0 10px white,
+      0 0 21px white,
+      0 0 42px #884EA0,
+      0 0 82px #884EA0,
+      0 0 92px #884EA0,
+      0 0 102px #884EA0,
+      0 0 151px #884EA0;
+}
 
 
 @keyframes SlideIn {
@@ -1540,7 +1658,111 @@
 }
 
 
-   
+ /* Responsive Styles */
+@media (max-width: 1440px) {
+    .card1 {
+        left: 0;
+        margin: auto;
+        width: 100%;
+        height: auto;
+        top: 100px;
+        padding: 15px 20px;
+    }
+
+    .containers1{
+        left: 0;
+        margin: auto;
+        width: auto;
+        height: auto;
+        top: 100px;
+        padding: 15px 20px;
+    }
+
+    .allLogin .display-1{
+        margin: auto;
+        width: auto;
+        height: auto;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+
+    
+    .tablink {
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 16px;
+    }
+
+    .tabcontent {
+        margin-top: 170px;
+        padding: 60px 15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    .card1 {
+        top: 100px;
+        left: 0;
+        height: auto;
+        padding: 10px 15px;
+        box-shadow: none;
+    }
+
+    .allLogin .display-1{
+        margin: auto;
+        width: auto;
+        height: auto;
+        top: 30px;
+        padding: 10px 15px;
+        text-align: center;
+    }
+
+    .containers1{
+        top: 100px;
+        left: 0;
+        height: auto;
+        width: auto;
+        padding: 10px 15px;
+        box-shadow: none;
+    }
+
+    .tablink {
+        font-size: 14px;
+    }
+
+    .tabcontent {
+        padding: 30px 10px;
+    }
+
+    .table thead {
+        display: none;
+    }
+    .table, .table tbody, .table tr, .table td {
+        display: block;
+        width: 100%;
+    }
+    .table tr {
+        margin-bottom: 1rem;
+    }
+    .table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+    .table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 1rem;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+  
 
 
 
