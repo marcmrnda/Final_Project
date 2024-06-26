@@ -18,16 +18,46 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
   exit();
 }
 
-  if (isset($_POST['updateSkill'])) {
-    $skillsName =  $_POST['skillsName'];
-    $skillsPercentage = $_POST['skillsPer'];
-    $userID = $_POST['ids'];
-    
-              if ($con->updateSkills($userID, $skillsName, $skillsPercentage)) {
+if (isset($_POST['updateSkill'])) {
+  $skillsNames = $_POST['skillsName'];
+  $skillsPercentages = $_POST['skillsPer'];
+  $skillsIDs = $_POST['ids'];
 
-                  header('location:index.php');
-              }
-            }
+  // Validate user input
+  if (empty($skillsNames) || empty($skillsPercentages) || empty($skillsIDs)) {
+      echo "Please fill in all fields";
+      exit;
+  }
+
+  // Check if the arrays have the same length
+  if (count($skillsNames)!== count($skillsPercentages) || count($skillsNames)!== count($skillsIDs)) {
+      echo "Invalid input";
+      exit;
+  }
+
+  // Update skills
+  try {
+      foreach ($skillsIDs as $key => $skillsID) {
+          $skillsName = $skillsNames[$key];
+          $skillsPercentage = $skillsPercentages[$key];
+
+          if (!is_numeric($skillsPercentage) || $skillsPercentage < 0 || $skillsPercentage > 100) {
+              echo "Invalid percentage value for skill $skillsName";
+              continue;
+          }
+
+          if (!$con->updateSkills($skillsID, $skillsName, $skillsPercentage)) {
+              echo "Failed to update skill $skillsName";
+              continue;
+          }
+      }
+
+      header('location:index.php');
+      exit;
+  } catch (Exception $e) {
+      echo "An error occurred: ". $e->getMessage();
+  }
+}
 ?>
 
 

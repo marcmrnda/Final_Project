@@ -153,7 +153,6 @@ function getSkills($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editSkills.php" method="post" class="d-inline">';
-          echo '<input type="hidden" name="skill_id" value="' . htmlspecialchars($row['skills_id']) . '">';
           echo '<button type="submit" name="edit" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this skill? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
@@ -241,7 +240,6 @@ function getProject($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editPortfolio.php" method="post" class="d-inline">';
-          echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['projects_id']) . '">';
           echo '<button type="submit" name="editasd" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
@@ -253,7 +251,6 @@ function getProject($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editProjectPic.php" method="post" class="d-inline">';
-          echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['projects_id']) . '">';
           echo '<button type="submit" name="editasds" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '</td>';
@@ -490,7 +487,7 @@ INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id 
     try {
       $con = $this->opencon();
       $con ->beginTransaction();
-      $query = $con->prepare("UPDATE education SET preschool_name = ?, preschool_year = ?, preschool_desc = ?, gradeSchool_name = ?, gradeSchool_year = ?, gradeSchool_desc = ?, Jhighschool_name  = ?, Jhighschool_year  = ?, Jhighschool_desc  = ?, Shighschool_name  = ?, Shighschool_year  = ?, Shighschool_desc  = ?, University_name  = ?, College_year  = ?, University_desc = ?, WHERE user_id = ?");
+      $query = $con->prepare("UPDATE education SET preschool_name = ?, preschool_year = ?, preschool_desc = ?, gradeSchool_name = ?, gradeSchool_year = ?, gradeSchool_desc = ?, Jhighschool_name  = ?, Jhighschool_year  = ?, Jhighschool_desc  = ?, Shighschool_name  = ?, Shighschool_year  = ?, Shighschool_desc  = ?, University_name  = ?, College_year  = ?, University_desc = ? WHERE user_id = ?");
       $query->execute([$preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc, $user_id]);
       $con->commit();
       return true;
@@ -502,21 +499,12 @@ INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id 
     }
   }
 
-  function updateSkills($user_id, $skillsName, $skillsPercentage){
-    try {
-      $con = $this->opencon();
-      $con ->beginTransaction();
-      $query = $con->prepare("UPDATE skills SET skills_name = ?, skills_percentage = ? WHERE skills_id = ?");
-      $query->execute([$skillsName, $skillsPercentage, $user_id]);
-      $con->commit();
-      return true;
-    } 
-    
-    catch (PDOException $e) {
-      $con->rollBack();
-      return false;
-    }
-  }
+  function updateSkills($SkillsID, $skillsName, $skillsPercentage) {
+    $con = $this->opencon();
+    $query = $con->prepare("UPDATE skills SET skills_name = ?, skills_percentage = ? WHERE skills_id = ?");
+    $query->execute([$skillsName, $skillsPercentage, $SkillsID]);
+    return $query->rowCount() > 0;
+}
 
   function updateLinks($user_id, $facebookLink, $XLink, $instagramLink, $githubLink){
     try {
