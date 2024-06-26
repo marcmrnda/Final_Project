@@ -30,14 +30,6 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
             }
 ?>
 
-
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -94,6 +86,7 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
     <form action="editSkills.php" method="post" enctype="multipart/form-data">
           <div class="form-row">
             <h1 class="display-1"> Edit Skills Page</h1>
+            
             <div class="form-group">
               <label for="skillsName">Skills Name:</label>
               <input type="text" class="form-control" id="skillsName" name="skillsName" value="<?php echo $data['skills_name']?>">

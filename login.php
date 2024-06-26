@@ -79,7 +79,7 @@ if (isset($_POST['login'])) {
 
                 
                 <input type="submit" name="login" class="buttonLogin" value="Login">
-                <small>You don't have an Account? <a href="">Register Here!!</a></small>
+                <small>You don't have an Account? <a href="./register.php">Register Here!!</a></small>
                 
             </form>
         </div>
