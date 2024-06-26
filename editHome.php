@@ -6,6 +6,17 @@ session_start();
 $id = $_SESSION['user_id'];
 $data = $con->viewdata($id);
 
+if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
+  header('location:login.php');
+  exit();
+}
+
+if(empty($_SESSION['username'])) {
+
+  header('location:login.php');
+  exit();
+
+}
 
   if (isset($_POST['updateHome'])) {
     $username =  $_POST['userName'];

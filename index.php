@@ -11,6 +11,12 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
   exit();
 }
 
+if(empty($_SESSION['username'])) {
+
+  header('location:login.php');
+  exit();
+
+}
 ?>
 
 
