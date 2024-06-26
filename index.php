@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="./aos-master/dist/aos.css">
+</head>
+<body>
+    <div class="all">
+        <nav class="navbar navbar-expand-lg">
+            
+            <div class="container-fluid">
+                <div class="cat">
+                    <img src="./backgrounds/14-40-05-944_512.webp" alt="" class="catwalk">
+                  </div>
+              <a class="navbar-brand" href="#">
+                <img src="./backgrounds/TITANS UNIVERSITY (1).png" alt="">
+              </a>
+                <button class="navbar-toggler burger" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#portfolio">Portfolio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#about">About Me</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link split" href="./tables.html"><i class="fa-solid fa-gear"></i></a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+          </nav>
+
+
+        <section class="firstMain" id="home" data-aos="fade-up" data-aos-duration="1000">
+            <article>
+                <h1 class="display-2 hello" data-aos="fade-up" data-aos-duration="1000">こんにちは</h1>
+                <h1 class="display-1 name" data-aos="fade-up" data-aos-duration="1000">Marc Miranda</h1>
+                <h1 class="display-3 hi" data-aos="fade-up" data-aos-duration="1000"></h1>
+                <p data-aos="fade-up" data-aos-duration="1000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat molestias voluptatum consequatur esse nulla rerum, officiis architecto sit! Repudiandae, alias.</p>
+                <a href="https://mail.google.com/mail/?view=cm&to=marcmrnda@gmail.com&su=What is it that you want?&body=Hello I am (State Your Name And Then Your Concerns)" target="_blank"><button class="contact" data-aos="fade-up" data-aos-duration="1000">Contact Me</button></a>
+                <div class="socialmedia" data-aos="fade-up" data-aos-duration="1000">
+                    <a href="https://www.facebook.com/marclouisse.miranda" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/Mirandowgz" target="_blank"><i class="fab fa-twitter" data-aos="fade-up" data-aos-duration="1000"></i></a>
+                    <a href="https://www.instagram.com/miranda_marc/" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/marcmrnda" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-github"></i></a>
+                </div>
+                <img class="profilepic" src="./backgrounds/20936_330427418512_7707687_n.jpg" alt="" data-aos="fade-up" data-aos-duration="1000">
+            </article>
+        </section>
+    </div>
+
+    <section class="secondMain" id="portfolio" data-aos="fade-down" data-aos-duration="2000">
+            <h1 class="display-1">Projects</h1>  
+      <div class="nav-wrapper">
+  
+            <div class="item" data-aos="fade-down" data-aos-duration="2000">
+              <div class="img-wrapper"><img src="./backgrounds/Copy of iSHARE - PSC (1).png" alt=""></div>
+              <div class="content-wrapper">
+                <h1>LAYA</h1>
+                <p>LAYA: Legal Aid at Your Access is an AI-powered platform providing free legal guidance and support to Filipinos, aiming to democratize legal assistance and promote justice.</p>
+                <a href="https://github.com/iNUvators/LAYA" target="_blank">More Information</a>
+              </div>
+            </div>
+
+            <div class="item" data-aos="fade-down" data-aos-duration="2000">
+                <div class="img-wrapper"><img src="./backgrounds/Copy of iSHARE - PSC.png" alt=""></div>
+                <div class="content-wrapper">
+                  <h1>iSHARE</h1>
+                  <p>iSHARE is an app that connects students with peer freelancers through a convenient and user-friendly interface. Students can easily find freelancers who are qualified to help them with their specific needs, and they are set to perform the services that students require at affordable rates.</p>
+                  <a href="">More Information</a>
+                </div>
+              </div>
+          
+              <div class="item" data-aos="fade-down" data-aos-duration="2000">
+                <div class="img-wrapper"><img src="./backgrounds/Copy of NU Arcane (iPAWS).png" alt=""></div>
+                <div class="content-wrapper">
+                  <h1>iPAWS</h1>
+                  <p>iPAWS offers an AI-powered smart collar that revolutionizes pet care by providing real-time insights and fostering a deeper connection between pets and their owners. This innovative solution seamlessly integrates modern technology with traditional pet care to enhance the overall pet ownership experience.</p>
+                  <a href="">More Information</a>
+                </div>
+              </div>
+            
+              
+        </div>
+        <button class="moreport">More Projects Here!</button>
+    </section>
+
+    <section class="thirdMain" id="about" data-aos="fade-up" data-aos-duration="1000">
+      <h1 class="display-6">About Me</h1>
+      <h2 class="display-1">Education</h2>
+      <div class="timeline" data-aos="fade-up" data-aos-duration="1000">
+
+        <div class="container left-container ">
+          <img src="./backgrounds/10.png" alt="">
+          <div class="text-box">
+            <h2 class="school">Puso ni Jesus School</h2>
+            <small class="year">2007-2008</small>
+            <span class="left-container-arrow"></span>
+          </div>
+        </div>
+
+        <div class="container right-container">
+          <img src="./backgrounds/11.png" alt="">
+          <div class="text-box">
+            <h2 class="school">Puso ni Jesus School & Lipa City Colleges Silvercrest</h2>
+            <small class="year">2009-2014</small>
+            <span class="right-container-arrow"></span>
+          </div>
+        </div>
+
+        <div class="container left-container ">
+          <img src="./backgrounds/12.png" alt="">
+          <div class="text-box">
+            <h2 class="school">Lipa City Colleges Silvercrest & APEC Schools Lipa</h2>
+            <small class="year">2015-2019</small>
+            <span class="left-container-arrow"></span>
+          </div>
+        </div>
+
+        <div class="container right-container ">
+          <img src="./backgrounds/13.png" alt="">
+          <div class="text-box">
+            <h2 class="school">APEC Schools Lipa</h2>
+            <small class="year">2019-2021</small>
+            <span class="right-container-arrow"></span>
+          </div>
+        </div>
+
+        <div class="container left-container ">
+          <img src="./backgrounds/14.png" alt="">
+          <div class="text-box">
+            <h2 class="school">University of Batangas Lipa & National University Lipa</h2>
+            <small class="year">2021-Present</small>
+            <span class="left-container-arrow"></span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="fourthMain" data-aos="fade-down" data-aos-duration="2000">
+      <h2 class="display-1">Skills Progress</h2>
+      <div class="containers">
+      <div class="skills">
+        
+        <div class="skill">
+          <div class="skill-name">SQL</div>
+          <div class="skill-bar">
+            <div class="skill-per prog1" per="70"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">HTML</div>
+          <div class="skill-bar">
+            <div class="skill-per prog2" per="60"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">CSS</div>
+          <div class="skill-bar">
+            <div class="skill-per prog3" per="60"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">PYTHON</div>
+          <div class="skill-bar">
+            <div class="skill-per prog4" per="45"></div>
+          </div>
+        </div>
+
+        <div class="skill">
+          <div class="skill-name">JAVA</div>
+          <div class="skill-bar">
+            <div class="skill-per prog5" per="42"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    </section>
+    
+
+
+    <section class="fifthMain" id="contact" data-aos="fade-up" data-aos-duration="1000">
+      <h2 class="display-1">Contact Me</h2>
+      <!-- Wrapper container -->
+<div class="containersss py-4">
+
+  <!-- Bootstrap 5 starter form -->
+  <form id="contactForm">
+
+    <!-- Name input -->
+    <div class="mb-3">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" id="name" type="text" placeholder="Name" data-sb-validations="required" />
+    </div>
+
+    <!-- Email address input -->
+    <div class="mb-3">
+      <label class="form-label" for="emailAddress">Email Address</label>
+      <input class="form-control" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required, email" />
+    </div>
+
+    <!-- Subject input -->
+    <div class="mb-3">
+      <label class="form-label" for="subject">Subject</label>
+      <input class="form-control" id="subject" type="text" placeholder="Subject" data-sb-validations="required" />
+    </div>
+
+    <!-- Message input -->
+    <div class="mb-3">
+      <label class="form-label" for="message">Message</label>
+      <textarea class="form-control" id="message" type="text" placeholder="Message" style="height: 10rem;" data-sb-validations="required"></textarea>
+    </div>
+
+    <!-- Form submit button -->
+    <div class="d-grid">
+      <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+    </div>
+
+  </form>
+
+</div>
+    </section>
+
+    <div class="containerss my-5">
+
+      <footer class="bg-dark text-center text-white">
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+        <section class="mb-4">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/marclouisse.miranda" role="button" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+    
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://x.com/Mirandowgz" role="button" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+    
+          <!-- Google -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/?view=cm&to=marcmrnda@gmail.com&su=What is it that you want?&body=Hello I am (State Your Name And Then Your Concerns)" role="button" target="_blank"
+            ><i class="fab fa-google"></i
+          ></a>
+    
+          <!-- Instagram -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/miranda_marc/" role="button" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+    
+          <!-- Github -->
+          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/marcmrnda" role="button" target="_blank"
+            ><i class="fab fa-github"></i
+          ></a>
+        </section>
+        <!-- Section: Social media -->
+      </div>
+      <!-- Grid container -->
+    
+      <!-- Copyright -->
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2024 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">marcmrnda.com</a>
+      </div>
+      <!-- Copyright -->
+    </footer>
+      
+    </div>
+
+    
+</body>
+<script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-414a4784-4be7-4a55-b5d2-589c583441ec" data-elfsight-app-lazy></div>
+<script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+<script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+<script src="./typed.js-2.1.0/dist/typed.umd.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+<script src="./aos-master/dist/aos.js"></script>
+<script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="package/dist/sweetalert2.js"></script>
+<!-- Pop Up Messages after a succesful transaction starts here --> <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const status = params.get('status');
+
+  if (status) {
+    let title, text, icon;
+    switch (status) {
+      case 'success':
+        title = 'Success!';
+        text = 'Record is successfully deleted.';
+        icon = 'success';
+        break;
+      case 'success1':
+        title = 'Success!'
+        text = 'Record is successfully updated.';
+        icon = 'success'
+        break;
+        case 'success2':
+        title = 'Success!'
+        text = 'You are successfully login.';
+        icon = 'success'
+        break;
+        case 'success3':
+        title = 'Success!'
+        text = 'You are already login.';
+        icon = 'success'
+        break;
+      case 'error':
+        title = 'Error!';
+        text = 'Something went wrong.';
+        icon = 'error';
+        break;
+      default:
+        return;
+    }
+    Swal.fire({
+      title: title,
+      text: text,
+      icon: icon
+    }).then(() => {
+      // Remove the status parameter from the URL
+      const newUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState(null, null, newUrl);
+    });
+  }
+});
+</script>
+</html>

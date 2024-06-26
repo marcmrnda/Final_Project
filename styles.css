@@ -232,7 +232,7 @@
     position: absolute;
     top: 480px;
     left: 100px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .firstMain .contact{
@@ -1110,8 +1110,8 @@
 }
 
 .cards{
-    width: 30vw;
-    height: 70vh;
+    width: 90vw;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1143,38 +1143,28 @@
     
 }
 
-.cards .card-body .form-group{
-   width: 200%;
+
+.cards .card-body .form-group input {
+    width: 80vw;
 }
 
-.cards .card-body  button {
+.cards .card-body button{
+    width: 60%;
+    background-color: transparent;
     font-family: "Micro 5", sans-serif;
-    font-size: 30px;
-    width: 120%;
-    position: relative;
-    top: 20px;
-    height: 10%;
-    color: #884EA0;
-    font-weight: bolder;
-    text-shadow:
-      0 0 7px white,
-      0 0 10px white,
-      0 0 21px white,
-      0 0 42px #884EA0,
-      0 0 82px #884EA0,
-      0 0 92px #884EA0,
-      0 0 102px #884EA0,
-      0 0 151px #884EA0;
-      background: transparent;
-      border: 3px solid #A569BD;
-      margin-bottom: 10px;
-    
+    border: 2px solid #A569BD;
+    border-radius: 10px;
+    font-size: xx-large;
+
 }
 
-.cards .card-body  button:hover {
+.cards .card-body button:hover {
     background-color: gold;
     color: white;
 }
+
+
+
 
 
 

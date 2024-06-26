@@ -161,77 +161,79 @@ $(document).ready(function(){
                       $('#emailFeedback').text('');
                       $('#nextButton').prop('disabled', false); // Enable the Next button
                   }
+              },
+              error: function(xhr, status, error) {
+                  console.error('AJAX Error:', status, error);
               }
           });
       } else {
           $('#email').removeClass('is-valid is-invalid');
           $('#emailFeedback').text('');
-          $('#nextButton').prop('disabled', false); // Enable the Next button if username is empty
+          $('#nextButton').prop('disabled', false); // Enable the Next button if email is empty
       }
   });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
-  const birthdayInput = document.getElementById("birthday");
   const steps = document.querySelectorAll(".form-step");
   let currentStep = 0;
 
+
   // Set the max attribute of the birthday input to today's date
-  const today = new Date().toISOString().split('T')[0];    
-  birthdayInput.setAttribute('max', today);
 
   // Add event listeners for real-time validation
-  const inputs = form.querySelectorAll("input, select");
+  const inputs = form.querySelectorAll("input");
   inputs.forEach(input => {
     input.addEventListener("input", () => validateInput(input));
-    input.addEventListener("change", () => validateInput(input));
   });
 
-  // Add an event listener to the form's submit event
-  form.addEventListener("submit", (event) => {
-    // Prevent form submission if the current step is not valid
-    if (!validateStep(currentStep)) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
+  //MultiStep Logic 
+// Add an event listener to the form's submit event
+form.addEventListener("submit", (event) => {
+// Prevent form submission if the current step is not valid
+if (!validateStep(currentStep)) {
+event.preventDefault();
+event.stopPropagation();
+}
 
-    // Add the 'was-validated' class to the form for Bootstrap styling
-    form.classList.add("was-validated");
-  }, false);
+// Add the 'was-validated' class to the form for Bootstrap styling
+form.classList.add("was-validated");
+}, false);
 
-  // Function to move to the next step
-  window.nextStep = () => {
-    // Only proceed to the next step if the current step is valid
-    if (validateStep(currentStep)) {
-      steps[currentStep].classList.remove("form-step-active"); // Hide the current step
-      currentStep++; // Increment the current step index
-      steps[currentStep].classList.add("form-step-active"); // Show the next step
-    }
-  };
+// Function to move to the next step
+window.nextStep = () => {
+// Only proceed to the next step if the current step is valid
+if (validateStep(currentStep)) {
+steps[currentStep].classList.remove("form-step-active"); // Hide the current step
+currentStep++; // Increment the current step index
+steps[currentStep].classList.add("form-step-active"); // Show the next step
+}
+};
 
-  // Function to move to the previous step
-  window.prevStep = () => {
-    steps[currentStep].classList.remove("form-step-active"); // Hide the current step
-    currentStep--; // Decrement the current step index
-    steps[currentStep].classList.add("form-step-active"); // Show the previous step
-  };
+// Function to move to the previous step
+window.prevStep = () => {
+steps[currentStep].classList.remove("form-step-active"); // Hide the current step
+currentStep--; // Decrement the current step index
+steps[currentStep].classList.add("form-step-active"); // Show the previous step
+};
 
-  // Function to validate all inputs in the current step
-  function validateStep(step) {
-    let valid = true;
-    // Select all input and select elements in the current step
-    const stepInputs = steps[step].querySelectorAll("input, select");
+// Function to validate all inputs in the current step
+function validateStep(step) {
+let valid = true;
+// Select all input and select elements in the current step
+const stepInputs = steps[step].querySelectorAll("input, select");
 
-    // Validate each input element
-    stepInputs.forEach(input => {
-      if (!validateInput(input)) {
-        valid = false; // If any input is invalid, set valid to false
-      }
-    });
+// Validate each input element
+stepInputs.forEach(input => {
+if (!validateInput(input)) {
+  valid = false; // If any input is invalid, set valid to false
+}
+});
 
-    return valid; // Return the overall validity of the step
-  }
+return valid; // Return the overall validity of the step
+}
+
 
   function validateInput(input) {
     if (input.name === 'password') {
@@ -253,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function validatePassword(passwordInput) {
     const password = passwordInput.value;
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/; //make explanation
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
     if (regex.test(password)) {
       passwordInput.classList.remove("is-invalid");
       passwordInput.classList.add("is-valid");
@@ -269,7 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const passwordInput = form.querySelector("input[name='password']");
     const password = passwordInput.value;
     const confirmPassword = confirmPasswordInput.value;
-
+  
     if (password === confirmPassword && password !== '') {
       confirmPasswordInput.classList.remove("is-invalid");
       confirmPasswordInput.classList.add("is-valid");
@@ -281,9 +283,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.addEventListener("keydown", (event) => {
+   document.addEventListener("keydown", (event) => {
     if (event.key === 'Enter') {
-      event.preventDefault(); // Prevent form submission
+        event.preventDefault(); // Prevent form submission
     }
-  });
+});
+
+  
+
 });
