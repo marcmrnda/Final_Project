@@ -21,9 +21,8 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
   if (isset($_POST['updateSkill'])) {
     $skillsName =  $_POST['skillsName'];
     $skillsPercentage = $_POST['skillsPer'];
+    $userID = $_POST['ids'];
     
-              // Update the user profile picture in the database
-              $userID = $_SESSION['user_id']; // Ensure user_id is stored in session
               if ($con->updateSkills($userID, $skillsName, $skillsPercentage)) {
 
                   header('location:index.php');
@@ -92,17 +91,18 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
       </nav>
 
     <div class="card1">
-        <form action="POST">
+    <form action="editSkills.php" method="post" enctype="multipart/form-data">
           <div class="form-row">
             <h1 class="display-1"> Edit Skills Page</h1>
             <div class="form-group">
               <label for="skillsName">Skills Name:</label>
-              <input type="text" class="form-control" id="skillsName" name="skillsName">
+              <input type="text" class="form-control" id="skillsName" name="skillsName" value="<?php echo $data['skills_name']?>">
             </div>
             <div class="form-group">
               <label for="userDescription">Skills Percentage:</label>
-              <input type="text" class="form-control" id="skillsPer" name="skillsPer">
+              <input type="text" class="form-control" id="skillsPer" name="skillsPer" value="<?php echo $data['skills_percentage']?>">
             </div>
+            <input type="hidden" name="ids" value="<?php echo $data['skills_id']; ?>">
             <button type="submit" class="btn btn-primary" name="updateSkill">Update Page</button>
           </div>
           

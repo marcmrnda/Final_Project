@@ -207,7 +207,8 @@ else {
                 <th>Profile-Pic:</th>
                 <th>Name:</th>
                 <th>Description:</th>
-                <th>Edit Home</th>
+                <th>Edit Home:</th>
+                <th>Edit Photo:</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -220,8 +221,14 @@ else {
               <td>
                 <!-- Update Button -->
                 <form action="editHome.php" class="d-inline w-100 p-3">
-                <input type="hidden" name="id" value="<?php echo $row['user_id']?>">
-                  <button type="submit"  name="edit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to update this user? You will be redirected to another page.')"> <i class="fas fa-edit"></i> </button>
+                <input type="hidden" name="id" value="<?php echo $data['user_id']?>">
+                  <button type="submit"  name="edit3" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to update this user? You will be redirected to another page.')"> <i class="fas fa-edit"></i> </button>
+                  </form>
+                </td>
+                <td>
+                <form action="editProfilePic.php" class="d-inline w-100 p-3">
+                <input type="hidden" name="id" value="<?php echo $data['user_id']?>">
+                  <button type="submit"  name="edit2" class="btn btn-secondary btn-sm" onclick="return confirm('Are you sure you want to update this user? You will be redirected to another page.')"> <i class="fas fa-edit"></i> </button>
                   </form>
                 </td>
             </tr>
@@ -239,6 +246,7 @@ else {
             <th>Description:</th>
             <th>Link:</th>
             <th>Edit & Delete</th>
+            <th>Edit Photo</th>
             </tr>
             </thead>
             <tbody>

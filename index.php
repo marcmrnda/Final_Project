@@ -65,6 +65,9 @@ if(empty($_SESSION['username'])) {
                   <li class="nav-item">
                     <a class="nav-link split" href="./tables.php"><i class="fa-solid fa-gear"></i></a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link split logout" href="./logout.php">Log Out</a>
+                  </li>
                 </ul>
 
               </div>

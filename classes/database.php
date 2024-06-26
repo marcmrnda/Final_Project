@@ -153,7 +153,7 @@ function getSkills($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editSkills.php" method="post" class="d-inline">';
-          echo '<input type="hidden" name="skill_id" value="' . htmlspecialchars($row['user_id']) . '">';
+          echo '<input type="hidden" name="skill_id" value="' . htmlspecialchars($row['skills_id']) . '">';
           echo '<button type="submit" name="edit" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this skill? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
@@ -241,8 +241,8 @@ function getProject($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editPortfolio.php" method="post" class="d-inline">';
-          echo '<input type="hidden" name="skill_id" value="' . htmlspecialchars($row['user_id']) . '">';
-          echo '<button type="submit" name="edit" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
+          echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['projects_id']) . '">';
+          echo '<button type="submit" name="editasd" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
           echo '<form method="POST" style="display: inline;">';
@@ -250,7 +250,15 @@ function getProject($userId) {
           echo '<button type="submit" name="deleteProject" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure you want to delete this project?\')"> <i class="fas fa-trash-alt"></i> </button>';
           echo '</form>';
           echo '</td>';
+          echo '<td>';
+          echo '<!-- Update Button -->';
+          echo '<form action="editProjectPic.php" method="post" class="d-inline">';
+          echo '<input type="hidden" name="project_id" value="' . htmlspecialchars($row['projects_id']) . '">';
+          echo '<button type="submit" name="editasds" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
+          echo '</form>';
+          echo '</td>';
           echo '</tr>';
+          
       }
   } else {
       echo '<tr><td colspan="5">No projects found</td></tr>';
@@ -381,6 +389,7 @@ function getProject($userId) {
     home.user_fullName,
     home.user_desc,
     home.user_pic,
+    projects.projects_id,
     projects.project_name,
     projects.project_desc,
     projects.project_link,
@@ -400,6 +409,7 @@ function getProject($userId) {
     education.University_name,
     education.College_year,
     education.University_desc,
+    skills.skills_id,
     skills.skills_name,
     skills.skills_percentage,
     links.facebook_link,
@@ -461,21 +471,20 @@ INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id 
     }
   }
 
-  function updateProjects($user_id, $projectName, $project_description, $projectLink, ){
+  function updateProjects($projects_id, $projectName, $project_description, $projectLink) {
     try {
-      $con = $this->opencon();
-      $con ->beginTransaction();
-      $query = $con->prepare("UPDATE projects SET project_name = ?, project_desc = ?, project_link = ? WHERE user_id = ?");
-      $query->execute([$projectName, $project_description, $projectLink, $user_id]);
-      $con->commit();
-      return true;
-    } 
-    
-    catch (PDOException $e) {
-      $con->rollBack();
-      return false;
+        $con = $this->opencon();
+        $con->beginTransaction();
+        $query = $con->prepare("UPDATE projects SET project_name = ?, project_desc = ?, project_link = ? WHERE projects_id = ?");
+        $query->execute([$projectName, $project_description, $projectLink, $projects_id]);
+        $con->commit();
+        return true;
+    } catch (PDOException $e) {
+        $con->rollBack();
+        return false;
     }
-  }
+}
+
 
   function updateEducation($user_id, $preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc){
     try {
@@ -497,7 +506,7 @@ INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id 
     try {
       $con = $this->opencon();
       $con ->beginTransaction();
-      $query = $con->prepare("UPDATE skills SET skills_name = ?, skills_percentage = ? WHERE user_id = ?");
+      $query = $con->prepare("UPDATE skills SET skills_name = ?, skills_percentage = ? WHERE skills_id = ?");
       $query->execute([$skillsName, $skillsPercentage, $user_id]);
       $con->commit();
       return true;
@@ -597,7 +606,7 @@ function updatePassword($userId, $hashedPassword){
     try {
         $con = $this->opencon();
         $con->beginTransaction();
-        $query = $con->prepare("UPDATE users SET user_profile_picture = ? WHERE user_id = ?");
+        $query = $con->prepare("UPDATE home SET user_pic = ? WHERE user_id = ?");
         $query->execute([$profilePicturePath, $userID]);
         // Update successful
         $con->commit();
@@ -608,4 +617,20 @@ function updatePassword($userId, $hashedPassword){
         return false; // Update failed
     }
      }
+
+     function updateUserProjectPicture($userID, $projectID, $projectPicturePath) {
+      try {
+          $con = $this->opencon();
+          $con->beginTransaction();
+          $query = $con->prepare("UPDATE projects SET project_pic = ? WHERE user_id = ? AND projects_id = ?");
+          $query->execute([$projectPicturePath, $userID, $projectID]);
+          // Update successful
+          $con->commit();
+          return true;
+      } catch (PDOException $e) {
+          // Handle the exception (e.g., log error, return false, etc.)
+           $con->rollBack();
+          return false; // Update failed
+      }
+       }
 }

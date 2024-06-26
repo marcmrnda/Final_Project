@@ -6,28 +6,25 @@ session_start();
 $id = $_SESSION['user_id'];
 $data = $con->viewdata($id);
 
-if(empty($_SESSION['username'])) {
-
-  header('location:login.php');
-  exit();
-
+// Redirect to login if the user is not logged in or doesn't have the correct account type
+if (empty($_SESSION['username']) || $_SESSION['account_type'] != 1) {
+    header('location:login.php');
+    exit();
 }
 
-if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
-  header('location:login.php');
-  exit();
-}
-
-  if (isset($_POST['updatePort'])) {
-    $project_name =  $_POST['projectName'];
+// Handle form submission
+if (isset($_POST['updatePort'])) {
+    $project_name = $_POST['projectName'];
     $project_description = $_POST['projectDescription'];
-    $projectLink =  $_POST['projectLink'];
-              // Update the user profile picture in the database
-              $userID = $_SESSION['user_id']; // Ensure user_id is stored in session
-              if ($con->updateProjects($userID, $project_name, $project_description, $projectLink)) {
-                  header('location:index.php');
-              }
-            }
+    $projectLink = $_POST['projectLink'];
+    $projects_id = $_POST['ids']; // This should be the unique ID of the project
+
+    // Update the user profile project details in the database
+    if ($con->updateProjects($projects_id, $project_name, $project_description, $projectLink)) {
+        header('location:index.php');
+        exit(); // Make sure to exit after header redirection
+    }
+}
 ?>
 
 
@@ -85,9 +82,9 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
         </div>
       </nav>
 
-    <div class="card1">
+  <div class="card1">
 
-     <form action="editPortfolio.php" method="post" enctype="multipart/form-data"><form action="POST">
+     <form action="editPortfolio.php" method="post" enctype="multipart/form-data">
             <div class="form-row">
                 <h1 class="display-1"> Edit Portfolio Page</h1>
               <div class="form-group">
@@ -102,11 +99,13 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
                 <label for="projectLink">Project Link:</label>
                 <input type="text" class="form-control" id="projectLink" name="projectLink" value="<?php echo $data['project_link']?>">
               </div>
-              <button type="submit" class="btn btn-primary" name="updatePort">Update Page</button>
-            </div>
 
-          </form>
-    </div>
+              <input type="hidden" name="ids" value="<?php echo $data['projects_id']; ?>">
+              <button type="submit" class="btn btn-primary" name="updatePort">Update Page</button>
+
+            </div>
+    </form>
+  </div>
 
     <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
 <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>

@@ -45,13 +45,6 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
 ?>
 
 
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
