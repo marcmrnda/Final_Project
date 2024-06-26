@@ -1,17 +1,47 @@
+<?php 
+require_once('classes/database.php');
+$con = new database();
+session_start();
+
+$id = $_SESSION['user_id'];
+$data = $con->viewdata($id);
+
+
+  if (isset($_POST['updateSkill'])) {
+    $skillsName =  $_POST['skillsName'];
+    $skillsPercentage = $_POST['skillsPer'];
+    
+              // Update the user profile picture in the database
+              $userID = $_SESSION['user_id']; // Ensure user_id is stored in session
+              if ($con->updateSkills($userID, $skillsName, $skillsPercentage)) {
+
+                  header('location:index.php');
+              }
+            }
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./aos-master/dist/aos.css">
-  <title>Document</title>
+    <title>Document</title>
 </head>
 <body>
-  <div class="editall">
+<div class="editall">
 
     <nav class="navbar navbar-expand-lg">
             
@@ -51,29 +81,25 @@
       </nav>
 
     <div class="card1">
-
-      <form action="POST">
-        <div class="form-row">
-          <h1 class="display-1"> Edit Home Page</h1>
-          <div class="form-group">
-            <label for="userName">Your Name:</label>
-            <input type="text" class="form-control" id="userName" name="userName">
+        <form action="POST">
+          <div class="form-row">
+            <h1 class="display-1"> Edit Skills Page</h1>
+            <div class="form-group">
+              <label for="skillsName">Skills Name:</label>
+              <input type="text" class="form-control" id="skillsName" name="skillsName">
+            </div>
+            <div class="form-group">
+              <label for="userDescription">Skills Percentage:</label>
+              <input type="text" class="form-control" id="skillsPer" name="skillsPer">
+            </div>
+            <button type="submit" class="btn btn-primary" name="updateSkill">Update Page</button>
           </div>
-          <div class="form-group">
-            <label for="userDescription">Your Description:</label>
-            <input type="text" class="form-control" id="userDescription" name="userDescription">
-          </div>
-          <div class="form-group">
-            <label for="profilePic">Profile_Picture:</label>
-            <input type="file" class="form-control" name="profilePic" accept="application/pdf,image/*" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Update Page</button>
-        </div>
-        
-      </form>
-    </div>
-
-    <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
+          
+        </form>
+      </div>
+</div>
+    
+ <script src="bootstrap-4.5.3-dist/js/bootstrap.js"></script>
 <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
 <script src="./typed.js-2.1.0/dist/typed.umd.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>

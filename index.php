@@ -6,6 +6,10 @@ session_start();
 $id = $_SESSION['user_id'];
 $data = $con->viewdata($id);
 
+if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
+  header('location:login.php');
+  exit();
+}
 
 ?>
 
@@ -22,7 +26,7 @@ $data = $con->viewdata($id);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./aos-master/dist/aos.css">
 </head>
-<body>        
+<body>
     <div class="all">
         <nav class="navbar navbar-expand-lg">
             
@@ -53,7 +57,7 @@ $data = $con->viewdata($id);
                     <a class="nav-link" href="#contact">Contact</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link split" href="./tables.html"><i class="fa-solid fa-gear"></i></a>
+                    <a class="nav-link split" href="./tables.php"><i class="fa-solid fa-gear"></i></a>
                   </li>
                 </ul>
 
@@ -83,18 +87,9 @@ $data = $con->viewdata($id);
     <section class="secondMain" id="portfolio" data-aos="fade-down" data-aos-duration="2000">
             <h1 class="display-1">Projects</h1>  
       <div class="nav-wrapper">
-  
-            <div class="item" data-aos="fade-down" data-aos-duration="2000">
-              <div class="img-wrapper">
-              <img src="<?php echo $data['project_pic'] ?>" alt="">
-              </article>
-              </div>
-              <div class="content-wrapper">
-                <h1><?php echo $data['project_name'] ?></h1>
-                <p><?php echo $data['project_desc'] ?></p>
-                <a href="<?php echo $data['project_link'] ?>" target="_blank">More Information</a>
-              </div>
-            </div>
+
+      <?php $con->getProjectsByUserId($id); ?>
+
             
         </div>
         <button class="moreport">More Projects Here!</button>
@@ -140,12 +135,7 @@ $data = $con->viewdata($id);
       <div class="containers">
       <div class="skills">
         
-        <div class="skill">
-          <div class="skill-name"><?php echo $data['skills_name'] ?></div>
-          <div class="skill-bar">
-            <div class="skill-per prog1" per="<?php echo $data['skills_percentage'] ?>"></div>
-          </div>
-        </div>
+        <?php $con->getSkillsByUserId($id); ?>
 
         
       </div>
@@ -232,7 +222,7 @@ $data = $con->viewdata($id);
       </div>
       <!-- Copyright -->
     </footer>
-      
+
 </div>
   
     

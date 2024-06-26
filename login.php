@@ -5,15 +5,15 @@ $con = new database();
 session_start();
 
 
-/*
+
 if (isset($_SESSION['username']) && isset($_SESSION['account_type'])) {
   if ($_SESSION['account_type'] == 0) {
-    header('location:index.php?status=success3');
+    header('location:index.php');
   } else if ($_SESSION['account_type'] == 1) {
-    header('location:user_account.php');
+    header('location:index.php?status=success3');
   }
   exit();
-}*/
+}
 
 
 
@@ -77,7 +77,7 @@ if (isset($_POST['login'])) {
                         <?php endif; ?>
 
 
-                <input type="hidden" name="id" value="<?php echo $results['user_id']?>">
+                
                 <input type="submit" name="login" class="buttonLogin" value="Login">
                 <small>You don't have an Account? <a href="">Register Here!!</a></small>
                 
