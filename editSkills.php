@@ -95,7 +95,7 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
               <label for="userDescription">Skills Percentage:</label>
               <input type="text" class="form-control" id="skillsPer" name="skillsPer" value="<?php echo $data['skills_percentage']?>">
             </div>
-            <input type="hidden" name="ids" value="<?php echo $data['skills_id']; ?>">
+            <input type="text" name="ids" value="<?php echo $data['skills_id']; ?>">
             <button type="submit" class="btn btn-primary" name="updateSkill">Update Page</button>
           </div>
           
