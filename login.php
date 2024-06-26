@@ -29,7 +29,6 @@ if (isset($_POST['login'])) {
       $_SESSION['username'] = $result['user_name'];
       $_SESSION['account_type'] = $result['account_type'];
       $_SESSION['user_id'] = $result['user_id'];
-      $_SESSION['project_id'] = $result['projects_id'];
       // Redirect based on account type
       if ($result['account_type'] == 0) {
         header('location:admin.php?status=success2');
