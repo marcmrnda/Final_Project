@@ -88,6 +88,8 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
     <div class="card1">
 
     <form action="editLinks.php" method="post" enctype="multipart/form-data"><form action="POST">
+    <div class="form-row">
+    <h1 class="display-1"> Edit Links Page</h1>
                                  <div class="form-group">
                                     <label for="fbLink">Facebook Link:</label>
                                     <input type="url" class="form-control" id="fbLink" name="fbLink" value="<?php echo $data['facebook_link']  ?>">

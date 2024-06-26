@@ -370,7 +370,7 @@ else {
       <td><?php echo $data['occupation_name2'] ?></td>
       <td><?php echo $data['occupation_name3'] ?></td>
       <td><!-- Update Button -->
-        <form action="editLinks.php" method="post" class="d-inline">
+        <form action="editOccupation.php" method="post" class="d-inline">
         <input type="hidden" name="id" value="<?php echo $row['user_id']?>">
           <button type="submit"  name="edit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to update this user? You will be redirected to another page.')"> <i class="fas fa-edit"></i> </button>
       </form>

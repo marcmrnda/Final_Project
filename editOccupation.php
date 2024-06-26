@@ -86,7 +86,7 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
 
     <div class="card1">
 
-    <form action="editHome.php" method="post" enctype="multipart/form-data">
+    <form action="editOccupation.php" method="post" enctype="multipart/form-data">
         <div class="form-row">
           <h1 class="display-1"> Edit Occupation Page</h1>
           <div class="form-group">
