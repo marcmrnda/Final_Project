@@ -1,16 +1,28 @@
+<?php
+require_once('classes/database.php');
+$con = new database();
+session_start();
+
+$id = $_SESSION['user_id'];
+$data = $con->viewdata($id);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="bootstrap-4.5.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="./aos-master/dist/aos.css">
 </head>
-<body>
+<body>        
     <div class="all">
         <nav class="navbar navbar-expand-lg">
             
@@ -53,17 +65,17 @@
         <section class="firstMain" id="home" data-aos="fade-up" data-aos-duration="1000">
             <article>
                 <h1 class="display-2 hello" data-aos="fade-up" data-aos-duration="1000">こんにちは</h1>
-                <h1 class="display-1 name" data-aos="fade-up" data-aos-duration="1000">Marc Miranda</h1>
+                <h1 class="display-1 name" data-aos="fade-up" data-aos-duration="1000"><?php echo $data['user_fullName'] ?></h1>
                 <h1 class="display-3 hi" data-aos="fade-up" data-aos-duration="1000"></h1>
-                <p data-aos="fade-up" data-aos-duration="1000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat molestias voluptatum consequatur esse nulla rerum, officiis architecto sit! Repudiandae, alias.</p>
+                <p data-aos="fade-up" data-aos-duration="1000"><?php echo $data['user_desc'] ?></p>
                 <a href="https://mail.google.com/mail/?view=cm&to=marcmrnda@gmail.com&su=What is it that you want?&body=Hello I am (State Your Name And Then Your Concerns)" target="_blank"><button class="contact" data-aos="fade-up" data-aos-duration="1000">Contact Me</button></a>
                 <div class="socialmedia" data-aos="fade-up" data-aos-duration="1000">
-                    <a href="https://www.facebook.com/marclouisse.miranda" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://x.com/Mirandowgz" target="_blank"><i class="fab fa-twitter" data-aos="fade-up" data-aos-duration="1000"></i></a>
-                    <a href="https://www.instagram.com/miranda_marc/" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/marcmrnda" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-github"></i></a>
+                    <a href="<?php echo $data['facebook_link'] ?>" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-facebook-f"></i></a>
+                    <a href="<?php echo $data['X_link'] ?>" target="_blank"><i class="fab fa-twitter" data-aos="fade-up" data-aos-duration="1000"></i></a>
+                    <a href="<?php echo $data['instagram_link'] ?>" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-instagram"></i></a>
+                    <a href="<?php echo $data['github_link'] ?>" target="_blank" data-aos="fade-up" data-aos-duration="1000"><i class="fab fa-github"></i></a>
                 </div>
-                <img class="profilepic" src="./backgrounds/20936_330427418512_7707687_n.jpg" alt="" data-aos="fade-up" data-aos-duration="1000">
+                <img src="<?php echo $data['user_pic'] ?>" class="profilepic" alt="">
             </article>
         </section>
     </div>
@@ -73,134 +85,72 @@
       <div class="nav-wrapper">
   
             <div class="item" data-aos="fade-down" data-aos-duration="2000">
-              <div class="img-wrapper"><img src="./backgrounds/Copy of iSHARE - PSC (1).png" alt=""></div>
+              <div class="img-wrapper">
+              <img src="<?php echo $data['project_pic'] ?>" alt="">
+              </article>
+              </div>
               <div class="content-wrapper">
-                <h1>LAYA</h1>
-                <p>LAYA: Legal Aid at Your Access is an AI-powered platform providing free legal guidance and support to Filipinos, aiming to democratize legal assistance and promote justice.</p>
-                <a href="https://github.com/iNUvators/LAYA" target="_blank">More Information</a>
+                <h1><?php echo $data['project_name'] ?></h1>
+                <p><?php echo $data['project_desc'] ?></p>
+                <a href="<?php echo $data['project_link'] ?>" target="_blank">More Information</a>
               </div>
             </div>
-
-            <div class="item" data-aos="fade-down" data-aos-duration="2000">
-                <div class="img-wrapper"><img src="./backgrounds/Copy of iSHARE - PSC.png" alt=""></div>
-                <div class="content-wrapper">
-                  <h1>iSHARE</h1>
-                  <p>iSHARE is an app that connects students with peer freelancers through a convenient and user-friendly interface. Students can easily find freelancers who are qualified to help them with their specific needs, and they are set to perform the services that students require at affordable rates.</p>
-                  <a href="">More Information</a>
-                </div>
-              </div>
-          
-              <div class="item" data-aos="fade-down" data-aos-duration="2000">
-                <div class="img-wrapper"><img src="./backgrounds/Copy of NU Arcane (iPAWS).png" alt=""></div>
-                <div class="content-wrapper">
-                  <h1>iPAWS</h1>
-                  <p>iPAWS offers an AI-powered smart collar that revolutionizes pet care by providing real-time insights and fostering a deeper connection between pets and their owners. This innovative solution seamlessly integrates modern technology with traditional pet care to enhance the overall pet ownership experience.</p>
-                  <a href="">More Information</a>
-                </div>
-              </div>
             
-              
         </div>
         <button class="moreport">More Projects Here!</button>
     </section>
 
     <section class="thirdMain" id="about" data-aos="fade-up" data-aos-duration="1000">
-      <h1 class="display-6">About Me</h1>
       <h2 class="display-1">Education</h2>
-      <div class="timeline" data-aos="fade-up" data-aos-duration="1000">
+      <div class="timelines">
 
-        <div class="container left-container ">
-          <img src="./backgrounds/10.png" alt="">
-          <div class="text-box">
-            <h2 class="school">Puso ni Jesus School</h2>
-            <small class="year">2007-2008</small>
-            <span class="left-container-arrow"></span>
-          </div>
-        </div>
-
-        <div class="container right-container">
-          <img src="./backgrounds/11.png" alt="">
-          <div class="text-box">
-            <h2 class="school">Puso ni Jesus School & Lipa City Colleges Silvercrest</h2>
-            <small class="year">2009-2014</small>
-            <span class="right-container-arrow"></span>
-          </div>
-        </div>
-
-        <div class="container left-container ">
-          <img src="./backgrounds/12.png" alt="">
-          <div class="text-box">
-            <h2 class="school">Lipa City Colleges Silvercrest & APEC Schools Lipa</h2>
-            <small class="year">2015-2019</small>
-            <span class="left-container-arrow"></span>
-          </div>
-        </div>
-
-        <div class="container right-container ">
-          <img src="./backgrounds/13.png" alt="">
-          <div class="text-box">
-            <h2 class="school">APEC Schools Lipa</h2>
-            <small class="year">2019-2021</small>
-            <span class="right-container-arrow"></span>
-          </div>
-        </div>
-
-        <div class="container left-container ">
-          <img src="./backgrounds/14.png" alt="">
-          <div class="text-box">
-            <h2 class="school">University of Batangas Lipa & National University Lipa</h2>
-            <small class="year">2021-Present</small>
-            <span class="left-container-arrow"></span>
-          </div>
-        </div>
+  <ul>
+    <li style="--accent-color:#41516C">
+        <div class="date"><?php echo $data['preschool_year'] ?></div>
+        <div class="title"><?php echo $data['preschool_name'] ?></div>
+        <div class="descr"><?php echo $data['preschool_desc'] ?></div>
+    </li>
+    <li style="--accent-color:#FBCA3E">
+        <div class="date"><?php echo $data['gradeSchool_year'] ?></div>
+        <div class="title"><?php echo $data['gradeSchool_name'] ?></div>
+        <div class="descr"><?php echo $data['gradeSchool_desc'] ?></div>
+    </li>
+    <li style="--accent-color:#E24A68">
+        <div class="date"><?php echo $data['Jhighschool_year'] ?></div>
+        <div class="title"><?php echo $data['Jhighschool_name'] ?></div>
+        <div class="descr"><?php echo $data['Jhighschool_desc'] ?></div>
+    </li>
+    <li style="--accent-color:#1B5F8C">
+        <div class="date"><?php echo $data['Shighschool_year'] ?></div>
+        <div class="title"><?php echo $data['Shighschool_name'] ?></div>
+        <div class="descr"><?php echo $data['Shighschool_desc'] ?></div>
+    </li>
+    <li style="--accent-color:#4CADAD">
+        <div class="date"><?php echo $data['College_year'] ?></div>
+        <div class="title"><?php echo $data['University_name'] ?></div>
+        <div class="descr"><?php echo $data['University_desc'] ?></div>
+    </li>
+</ul>
 
       </div>
-
     </section>
 
-    <section class="fourthMain" data-aos="fade-down" data-aos-duration="2000">
+  <section class="fourthMain" data-aos="fade-down" data-aos-duration="2000">
       <h2 class="display-1">Skills Progress</h2>
       <div class="containers">
       <div class="skills">
         
         <div class="skill">
-          <div class="skill-name">SQL</div>
+          <div class="skill-name"><?php echo $data['skills_name'] ?></div>
           <div class="skill-bar">
-            <div class="skill-per prog1" per="70"></div>
+            <div class="skill-per prog1" per="<?php echo $data['skills_percentage'] ?>"></div>
           </div>
         </div>
 
-        <div class="skill">
-          <div class="skill-name">HTML</div>
-          <div class="skill-bar">
-            <div class="skill-per prog2" per="60"></div>
-          </div>
-        </div>
-
-        <div class="skill">
-          <div class="skill-name">CSS</div>
-          <div class="skill-bar">
-            <div class="skill-per prog3" per="60"></div>
-          </div>
-        </div>
-
-        <div class="skill">
-          <div class="skill-name">PYTHON</div>
-          <div class="skill-bar">
-            <div class="skill-per prog4" per="45"></div>
-          </div>
-        </div>
-
-        <div class="skill">
-          <div class="skill-name">JAVA</div>
-          <div class="skill-bar">
-            <div class="skill-per prog5" per="42"></div>
-          </div>
-        </div>
-
+        
       </div>
     </div>
-    </section>
+  </section>
     
 
 
@@ -246,35 +196,28 @@
 </div>
     </section>
 
-    <div class="containerss my-5">
-
       <footer class="bg-dark text-center text-white">
       <!-- Grid container -->
       <div class="container p-4 pb-0">
         <!-- Section: Social media -->
         <section class="mb-4">
           <!-- Facebook -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/marclouisse.miranda" role="button" target="_blank"
+          <a class="btn btn-outline-light btn-floating m-1" href="<?php echo $data['facebook_link'] ?>" role="button" target="_blank"
             ><i class="fab fa-facebook-f"></i
           ></a>
     
           <!-- Twitter -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://x.com/Mirandowgz" role="button" target="_blank"
+          <a class="btn btn-outline-light btn-floating m-1" href="<?php echo $data['X_link'] ?>" role="button" target="_blank"
             ><i class="fab fa-twitter"></i
           ></a>
     
-          <!-- Google -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://mail.google.com/mail/?view=cm&to=marcmrnda@gmail.com&su=What is it that you want?&body=Hello I am (State Your Name And Then Your Concerns)" role="button" target="_blank"
-            ><i class="fab fa-google"></i
-          ></a>
-    
           <!-- Instagram -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/miranda_marc/" role="button" target="_blank"
+          <a class="btn btn-outline-light btn-floating m-1" href="<?php echo $data['instagram_link'] ?>" role="button" target="_blank"
             ><i class="fab fa-instagram"></i
           ></a>
     
           <!-- Github -->
-          <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/marcmrnda" role="button" target="_blank"
+          <a class="btn btn-outline-light btn-floating m-1" href="<?php echo $data['github_link'] ?>" role="button" target="_blank"
             ><i class="fab fa-github"></i
           ></a>
         </section>
@@ -290,8 +233,8 @@
       <!-- Copyright -->
     </footer>
       
-    </div>
-
+</div>
+  
     
 </body>
 <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>

@@ -53,7 +53,47 @@ class database{
 
     function view(){
       $con = $this->opencon();
-      return $con->query("SELECT users.user_id, users.user_firstname, users.user_lastname, users.user_birthday, users.user_sex, users.user_name, users.user_profile_picture, CONCAT(user_address.city,', ', user_address.province) AS address from users INNER JOIN user_address ON users.user_id = user_address.user_id")->fetchAll();
+      return $con->query("SELECT
+    users.user_id,
+    home.user_fullName,
+    home.user_desc,
+    home.user_pic,
+    projects.project_name,
+    projects.project_desc,
+    projects.project_link,
+    projects.project_pic,
+    education.preschool_name,
+    education.preschool_year,
+    education.preschool_desc,
+    education.gradeSchool_name,
+    education.gradeSchool_year,
+    education.gradeSchool_desc,
+    education.Jhighschool_name,
+    education.Jhighschool_year,
+    education.Jhighschool_desc,
+    education.Shighschool_name,
+    education.Shighschool_year,
+    education.Shighschool_desc
+    education.University_name,
+    education.College_year,
+    education.College_desc,
+    skills.skills_name,
+    skills.skills_percentage,
+    links.facebook_link,
+    links.X_link,
+    links.instagram_link,
+    links.github_link
+    occupation.occupation1,
+    occupation.occupation2,
+    occupation.occupation3
+FROM
+    users
+INNER JOIN home ON users.user_id = home.user_id 
+INNER JOIN projects ON users.user_id = projects.user_id
+INNER JOIN education ON users.user_id = education.user_id
+INNER JOIN skills ON users.user_id = skills.user_id
+INNER JOIN links ON users.user_id = links.user_id
+INNER JOIN occupation ON users.user_id = occupation.user_id")->fetchAll();
 
     }
 
@@ -115,14 +155,14 @@ class database{
           
     }
 
-    function insertEducation($user_id, $preschoolName, $preschoolYear, $gradeschoolName, $gradeschoolYear, $JhighschoolName, $JhighschoolYear, $ShighschoolName, $ShighschoolYear, $universityName, $collegeYear) {
+    function insertEducation($user_id, $preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc) {
         
       try
     {
         $con = $this->opencon();
         $con->beginTransaction();
-        $con->prepare("INSERT INTO education (user_id, preschool_name, preschool_year, gradeSchool_name, gradeSchool_year, Jhighschool_name, Jhighschool_year, Shighschool_name, Shighschool_year, University_name, College_year) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?)")->execute([$user_id, $preschoolName, $preschoolYear, $gradeschoolName, $gradeschoolYear, $JhighschoolName, $JhighschoolYear, $ShighschoolName, $ShighschoolYear, $universityName, $collegeYear]);
+        $con->prepare("INSERT INTO education (user_id, preschool_name, preschool_year, preschool_desc, gradeSchool_name, gradeSchool_year, gradeSchool_desc, Jhighschool_name, Jhighschool_year, Jhighschool_desc, Shighschool_name, Shighschool_year, Shighschool_desc, University_name, College_year, University_desc) 
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")->execute([$user_id, $preschoolName, $preschoolYear, $pre_schoolDesc , $gradeschoolName, $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear, $collegeDesc]);
         $con->commit();
         return true;
     }
@@ -166,6 +206,23 @@ class database{
           }    
     }
 
+    function insertOccupation($user_id, $occupation1, $occupation2, $occupation3) {
+      
+      try
+      {
+          $con = $this->opencon();
+          $con->beginTransaction();
+          $con->prepare("INSERT INTO occupation (user_id, occupation_name1, occupation_name2, occupation_name3) 
+        VALUES (?,?,?,?)")->execute([$user_id, $occupation1, $occupation2, $occupation3]);
+          $con->commit();
+          return true;
+      }
+          catch (PDOException $e) {
+              $con->rollBack();
+              return false;
+          }
+    }
+
 
 
 
@@ -173,7 +230,47 @@ class database{
     
       try {
         $con = $this->opencon();
-        $query = $con->prepare("SELECT users.user_id, users.user_firstname, users.user_lastname, users.user_birthday, users.user_sex, users.user_name, user_profile_picture, user_address.city, user_address.barangay, user_address.street, user_address.province FROM users INNER JOIN user_address ON users.user_id = user_address.user_id WHERE users.user_id = ?");
+        $query = $con->prepare("SELECT
+    users.user_id,
+    home.user_fullName,
+    home.user_desc,
+    home.user_pic,
+    projects.project_name,
+    projects.project_desc,
+    projects.project_link,
+    projects.project_pic,
+    education.preschool_name,
+    education.preschool_year,
+    education.preschool_desc,
+    education.gradeSchool_name,
+    education.gradeSchool_year,
+    education.gradeSchool_desc,
+    education.Jhighschool_name,
+    education.Jhighschool_year,
+    education.Jhighschool_desc,
+    education.Shighschool_name,
+    education.Shighschool_year,
+    education.Shighschool_desc,
+    education.University_name,
+    education.College_year,
+    education.University_desc,
+    skills.skills_name,
+    skills.skills_percentage,
+    links.facebook_link,
+    links.X_link,
+    links.instagram_link,
+    links.github_link,
+    occupation.occupation_name1,
+    occupation.occupation_name2,
+    occupation.occupation_name3
+FROM
+    users
+INNER JOIN home ON users.user_id = home.user_id 
+INNER JOIN projects ON users.user_id = projects.user_id
+INNER JOIN education ON users.user_id = education.user_id
+INNER JOIN skills ON users.user_id = skills.user_id
+INNER JOIN links ON users.user_id = links.user_id 
+INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id = ?");
         $query->execute([$id]); 
         return $query->fetch();
     } 

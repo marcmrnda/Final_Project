@@ -4,6 +4,8 @@ require_once('classes/database.php');
 $con = new database();
 session_start();
 
+
+/*
 if (isset($_SESSION['username']) && isset($_SESSION['account_type'])) {
   if ($_SESSION['account_type'] == 0) {
     header('location:index.php?status=success3');
@@ -11,7 +13,7 @@ if (isset($_SESSION['username']) && isset($_SESSION['account_type'])) {
     header('location:user_account.php');
   }
   exit();
-}
+}*/
 
 
 
@@ -45,10 +47,6 @@ if (isset($_POST['login'])) {
 ?>
 
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -78,6 +76,8 @@ if (isset($_POST['login'])) {
                             </div>
                         <?php endif; ?>
 
+
+                <input type="hidden" name="id" value="<?php echo $results['user_id']?>">
                 <input type="submit" name="login" class="buttonLogin" value="Login">
                 <small>You don't have an Account? <a href="">Register Here!!</a></small>
                 
