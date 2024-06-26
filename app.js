@@ -1,6 +1,3 @@
-const currentStep = 0;
-const steps = document.querySelectorAll(".form-step");
-
 $('.nav-wrapper .item').click(function(e){
   if($(this).hasClass('active')){
     $(this).removeClass('active');
@@ -41,19 +38,6 @@ AOS.init({
 
 });
 
-var typed = new Typed(".hi",{
-    strings: ["A Striving Student","A Future Developer ", "A Future Cyborg"],
-    typespeed: 10,
-    backspeed: 10,
-    loop: true
-});
-
-
-  $('.skill-per').each(function() {
-  var $this = $(this);
-  var per = $this.attr('per');
-  $this.css("width", per+'%');
-  });
 
 
   function openPage(pageName, elmnt, color) {

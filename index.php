@@ -66,7 +66,7 @@ $data = $con->viewdata($id);
             <article>
                 <h1 class="display-2 hello" data-aos="fade-up" data-aos-duration="1000">こんにちは</h1>
                 <h1 class="display-1 name" data-aos="fade-up" data-aos-duration="1000"><?php echo $data['user_fullName'] ?></h1>
-                <h1 class="display-3 hi" data-aos="fade-up" data-aos-duration="1000"></h1>
+                <h1 class="display-3 hii" data-aos="fade-up" data-aos-duration="1000"></h1>
                 <p data-aos="fade-up" data-aos-duration="1000"><?php echo $data['user_desc'] ?></p>
                 <a href="https://mail.google.com/mail/?view=cm&to=marcmrnda@gmail.com&su=What is it that you want?&body=Hello I am (State Your Name And Then Your Concerns)" target="_blank"><button class="contact" data-aos="fade-up" data-aos-duration="1000">Contact Me</button></a>
                 <div class="socialmedia" data-aos="fade-up" data-aos-duration="1000">
@@ -247,6 +247,23 @@ $data = $con->viewdata($id);
 <script src="app.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 <script src="package/dist/sweetalert2.js"></script>
+<script>
+  var typed = new Typed(".hii",{
+    strings: ["<?php echo $data['occupation_name1']?>","<?php echo $data['occupation_name2']?>", "<?php echo $data['occupation_name3']?>"],
+    typespeed: 10,
+    backspeed: 10,
+    loop: true
+});
+</script>
+
+<script>
+    $('.skill-per').each(function() {
+  var $this = $(this);
+  var per = $this.attr('per');
+  $this.css("width", per+'%');
+  });
+
+</script>
 <!-- Pop Up Messages after a succesful transaction starts here --> <script>
 document.addEventListener('DOMContentLoaded', function() {
   const params = new URLSearchParams(window.location.search);
