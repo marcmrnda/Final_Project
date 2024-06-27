@@ -115,19 +115,19 @@ if (isset($_POST['updateProfilePic'])) {
             
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="index.html#home">Home</a>
+                <a class="nav-link active" aria-current="page" href="index.php#home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#portfolio">Portfolio</a>
+                <a class="nav-link" href="index.php#portfolio">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#about">About Me</a>
+                <a class="nav-link" href="index.php#about">About Me</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="index.html#contact">Contact</a>
+                <a class="nav-link" href="index.php#contact">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link split" href="./tables.html"><i class="fa-solid fa-gear"></i></a>
+                <a class="nav-link split" href="./tables.php"><i class="fa-solid fa-gear"></i></a>
               </li>
             </ul>
 
