@@ -4,7 +4,7 @@ $con = new database();
 session_start();
 
 $id = $_SESSION['user_id'];
-$data = $con->viewdata($id);
+$data = $con->viewPort($id);
 
 // Redirect to login if the user is not logged in or doesn't have the correct account type
 if (empty($_SESSION['username']) || $_SESSION['account_type'] != 1) {
@@ -85,22 +85,24 @@ if (isset($_POST['updatePort'])) {
   <div class="card1">
 
      <form action="editPortfolio.php" method="post" enctype="multipart/form-data">
-            <div class="form-row">
-                <h1 class="display-1"> Edit Portfolio Page</h1>
-              <div class="form-group">
-                <label for="projectName">Project Name:</label>
-                <input type="text" class="form-control" id="projectName" name="projectName" value="<?php echo $data['project_name']?>">
-              </div>
-              <div class="form-group">
-                <label for="projectDescription">Project Description:</label>
-                <input type="text" class="form-control" id="projectDescription" name="projectDescription" value="<?php echo $data['project_desc']?>">
-              </div>
-              <div class="form-group">
-                <label for="projectLink">Project Link:</label>
-                <input type="text" class="form-control" id="projectLink" name="projectLink" value="<?php echo $data['project_link']?>">
-              </div>
+      <?php foreach($data as $row) {?>
+  <div class="form-row">
+    <h1 class="display-1"> Edit Portfolio Page</h1>
+    <div class="form-group">
+      <label for="projectName">Project Name:</label>
+      <input type="text" class="form-control" id="projectName" name="projectName" value="<?php echo $row['project_name'];?>">
+    </div>
+    <div class="form-group">
+      <label for="projectDescription">Project Description:</label>
+      <input type="text" class="form-control" id="projectDescription" name="projectDescription" value="<?php echo $row['project_desc'];?>">
+    </div>
+    <div class="form-group">
+      <label for="projectLink">Project Link:</label>
+      <input type="text" class="form-control" id="projectLink" name="projectLink" value="<?php echo $row['project_link'];?>">
+    </div>
 
-              <input type="hidden" name="ids" value="<?php echo $data['projects_id']; ?>">
+    <input type="hidden" name="ids" value="<?php echo $row['projects_id'];?>">
+    <?php } ?>
               <button type="submit" class="btn btn-primary" name="updatePort">Update Page</button>
 
             </div>

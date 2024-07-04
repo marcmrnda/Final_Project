@@ -863,8 +863,8 @@
 
 /* Card Container */
 .card1 {
-    width: 95%;
-    height: 80vh;
+    width: auto;
+    height: auto;
     padding: 20px 30px;
     background-color: transparent;
     border-radius: 10px;

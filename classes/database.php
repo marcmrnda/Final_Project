@@ -210,6 +210,14 @@ function deleteSkills($id) {
 
 }
 
+function viewPort($userId) {
+  $con = $this->opencon();
+  $stmt = $con->prepare("SELECT * FROM projects WHERE user_id = ?");
+  $stmt->execute([$userId]);
+  return $stmt->fetchAll();
+}
+
+
 
 function getProject($userId) {
   $dbhost = 'localhost';
