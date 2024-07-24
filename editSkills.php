@@ -3,8 +3,16 @@ require_once('classes/database.php');
 $con = new database();
 session_start();
 
-$id = $_SESSION['user_id'];
-$data = $con->viewdata($id);
+
+
+if (isset($_POST['id2'])) {
+  $id = $_POST['id2'];
+  $data = $con->viewSkills($id);
+  
+  }
+  else {  
+   header('location:index.php');
+  }
 
 if(empty($_SESSION['username'])) {
 
@@ -84,18 +92,20 @@ if(!isset($_SESSION['username'])|| $_SESSION['account_type'] != 1) {
 
     <div class="card1">
     <form action="editSkills.php" method="post" enctype="multipart/form-data">
+    <?php foreach($data as $row) {?>
           <div class="form-row">
             <h1 class="display-1"> Edit Skills Page</h1>
             
             <div class="form-group">
               <label for="skillsName">Skills Name:</label>
-              <input type="text" class="form-control" id="skillsName" name="skillsName" value="<?php echo $data['skills_name']?>">
+              <input type="text" class="form-control" id="skillsName" name="skillsName" value="<?php echo $row['skills_name']?>">
             </div>
             <div class="form-group">
               <label for="userDescription">Skills Percentage:</label>
-              <input type="text" class="form-control" id="skillsPer" name="skillsPer" value="<?php echo $data['skills_percentage']?>">
+              <input type="text" class="form-control" id="skillsPer" name="skillsPer" value="<?php echo $row['skills_percentage']?>">
             </div>
-            <input type="text" name="ids" value="<?php echo $data['skills_id']; ?>">
+            <input type="hidden" name="ids" value="<?php echo $row['skills_id']; ?>">
+            <?php } ?>
             <button type="submit" class="btn btn-primary" name="updateSkill">Update Page</button>
           </div>
           

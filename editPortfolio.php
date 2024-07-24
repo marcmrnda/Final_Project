@@ -3,8 +3,17 @@ require_once('classes/database.php');
 $con = new database();
 session_start();
 
-$id = $_SESSION['user_id'];
-$data = $con->viewPort($id);
+
+if (isset($_POST['id1'])) {
+  $id = $_POST['id1'];
+  $data = $con->viewPort($id);
+  
+  }
+  else {  
+   header('location:index.php');
+  }
+
+
 
 // Redirect to login if the user is not logged in or doesn't have the correct account type
 if (empty($_SESSION['username']) || $_SESSION['account_type'] != 1) {
@@ -13,13 +22,14 @@ if (empty($_SESSION['username']) || $_SESSION['account_type'] != 1) {
 }
 
 // Handle form submission
-if (isset($_POST['updatePort'])) {
+if (isset($_POST['updateProject'])) {
     $project_name = $_POST['projectName'];
     $project_description = $_POST['projectDescription'];
     $projectLink = $_POST['projectLink'];
-    $projects_id = $_POST['ids']; // This should be the unique ID of the project
+    $projects_id = $_POST['id1']; // This should be the unique ID of the project
 
     // Update the user profile project details in the database
+      $userID = $_SESSION['user_id'];
     if ($con->updateProjects($projects_id, $project_name, $project_description, $projectLink)) {
         header('location:index.php');
         exit(); // Make sure to exit after header redirection
@@ -100,10 +110,9 @@ if (isset($_POST['updatePort'])) {
       <label for="projectLink">Project Link:</label>
       <input type="text" class="form-control" id="projectLink" name="projectLink" value="<?php echo $row['project_link'];?>">
     </div>
-
-    <input type="hidden" name="ids" value="<?php echo $row['projects_id'];?>">
-    <?php } ?>
-              <button type="submit" class="btn btn-primary" name="updatePort">Update Page</button>
+    '<input type="hidden" name="id1" value="<?php echo htmlspecialchars($row['projects_id'])?>">;
+      <?php } ?>
+              <button type="submit" class="btn btn-primary" name="updateProject">Update Page</button>
 
             </div>
     </form>

@@ -153,6 +153,7 @@ function getSkills($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editSkills.php" method="post" class="d-inline">';
+          echo '<input type="hidden" name="id2" value="' . htmlspecialchars($row['skills_id']) . '">';
           echo '<button type="submit" name="edit" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this skill? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
@@ -212,7 +213,15 @@ function deleteSkills($id) {
 
 function viewPort($userId) {
   $con = $this->opencon();
-  $stmt = $con->prepare("SELECT * FROM projects WHERE user_id = ?");
+  $stmt = $con->prepare("SELECT * FROM projects WHERE projects_id = ?");
+  $stmt->execute([$userId]);
+  return $stmt->fetchAll();
+}
+
+
+function viewSkills($userId) {
+  $con = $this->opencon();
+  $stmt = $con->prepare("SELECT * FROM skills WHERE skills_id = ?");
   $stmt->execute([$userId]);
   return $stmt->fetchAll();
 }
@@ -248,6 +257,7 @@ function getProject($userId) {
           echo '<td>';
           echo '<!-- Update Button -->';
           echo '<form action="editPortfolio.php" method="post" class="d-inline">';
+          echo '<input type="hidden" name="id1" value="' . htmlspecialchars($row['projects_id']) . '">';
           echo '<button type="submit" name="editasd" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this project? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
           echo '</form>';
           echo '<!-- Delete button -->';
