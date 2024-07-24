@@ -37,9 +37,6 @@ if (isset($_POST['updateProject'])) {
 }
 ?>
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
