@@ -90,6 +90,42 @@ function getProjectsByUserId($userId) {
   $conn->close();
 }
 
+function getEducationByUserId($userId) {
+  $dbhost = 'localhost';
+  $dbuser = 'root';
+  $dbpass = '';
+  $dbname = 'myport';
+
+  $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+
+  if ($conn->connect_error) {
+    die("Connection failed: ". $conn->connect_error);
+  }
+
+  $sql = "SELECT * FROM education WHERE user_id =?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $userId);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+      // Output the project details in HTML format
+      echo '<ul>';
+      echo '<li style="--accent-color:#41516C">';
+      echo    '<div class="date">'. $row['school_year'] . ': ' . $row['school_level'] .'</div>';
+      echo    '<div class="title">'. $row['school_name'] .'</div>';
+      echo    '<div class="descr">'. $row['school_desc'] .'</div>';
+      echo '</li>';
+      echo '</ul>';
+    }
+  } else {
+    echo "No projects found";
+  }
+
+  $conn->close();
+}
+
 function getSkillsByUserId($userId) {
   $dbhost = 'localhost';
   $dbuser = 'root';
@@ -171,6 +207,51 @@ function getSkills($userId) {
   $conn->close();
 }
 
+function getEducation($userId) {
+  $dbhost = 'localhost';
+  $dbuser = 'root';
+  $dbpass = '';
+  $dbname = 'myport';
+
+  $conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+
+  $sql = "SELECT * FROM education WHERE user_id = ?";
+  $stmt = $conn->prepare($sql);
+  $stmt->bind_param("i", $userId);
+  $stmt->execute();
+  $result = $stmt->get_result();
+
+  if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+          echo '<tr>';
+          echo '<td>' . $row['school_level'] . '</td>';
+          echo '<td>' . $row['school_name'] . '</td>';
+          echo '<td>' . $row['school_year'] . '</td>';
+          echo '<td>' . $row['school_desc'] . '</td>';
+          echo '<td>';
+          echo '<form action="editEducation.php" method="post" class="d-inline">';
+          echo '<input type="hidden" name="id3" value="' . $row['education_id'] . '">';
+          echo '<button type="submit"  name="edit" class="btn btn-primary btn-sm" onclick="return confirm(\'Are you sure you want to update this user? You will be redirected to another page.\')"> <i class="fas fa-edit"></i> </button>';
+          echo '</form>';
+          echo '<!-- Delete button -->';
+          echo '<form method="POST" style="display: inline;">';
+          echo '<input type="hidden" name="id3" value="' . $row['education_id'] . '">';
+          echo '<button type="submit" name="deleteEdu" class="btn btn-danger btn-sm" onclick="return confirm(\'Are you sure you want to delete this user?\')"> <i class="fas fa-trash-alt"></i> </button>';
+          echo '</form>';
+          echo '</td>';
+          echo '</tr>';
+      }
+  } else {
+      echo '<tr><td colspan="3">No skills found</td></tr>';
+  }
+
+  $conn->close();
+}
+
 
 
     function deleteProject($id) {
@@ -211,6 +292,25 @@ function deleteSkills($id) {
 
 }
 
+function deleteEducation($id) {
+  try {
+  $con = $this->opencon();
+  $con->beginTransaction();
+
+  // Delete user address
+  $query = $con->prepare("DELETE FROM skills WHERE education_id = ?");
+  $query->execute([$id]);
+
+  $con->commit();
+  return true; // Deletion successful
+} catch (PDOException $e) {
+  $con->rollBack();
+  return false;
+}  
+
+}
+
+
 function viewPort($userId) {
   $con = $this->opencon();
   $stmt = $con->prepare("SELECT * FROM projects WHERE projects_id = ?");
@@ -222,6 +322,13 @@ function viewPort($userId) {
 function viewSkills($userId) {
   $con = $this->opencon();
   $stmt = $con->prepare("SELECT * FROM skills WHERE skills_id = ?");
+  $stmt->execute([$userId]);
+  return $stmt->fetchAll();
+}
+
+function viewEducation($userId) {
+  $con = $this->opencon();
+  $stmt = $con->prepare("SELECT * FROM education WHERE education_id = ?");
   $stmt->execute([$userId]);
   return $stmt->fetchAll();
 }
@@ -324,14 +431,14 @@ function getProject($userId) {
           
     }
 
-    function insertEducation($user_id, $preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc) {
+    function insertEducation($user_id, $school_level, $school_name, $school_year, $school_description) {
         
       try
     {
         $con = $this->opencon();
         $con->beginTransaction();
-        $con->prepare("INSERT INTO education (user_id, preschool_name, preschool_year, preschool_desc, gradeSchool_name, gradeSchool_year, gradeSchool_desc, Jhighschool_name, Jhighschool_year, Jhighschool_desc, Shighschool_name, Shighschool_year, Shighschool_desc, University_name, College_year, University_desc) 
-        VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")->execute([$user_id, $preschoolName, $preschoolYear, $pre_schoolDesc , $gradeschoolName, $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear, $collegeDesc]);
+        $con->prepare("INSERT INTO education (user_id, school_level, school_name, school_year, school_desc) 
+        VALUES (?,?,?,?,?)")->execute([$user_id,  $school_level, $school_name, $school_year, $school_description]);
         $con->commit();
         return true;
     }
@@ -400,40 +507,7 @@ function getProject($userId) {
       try {
         $con = $this->opencon();
         $query = $con->prepare("SELECT
-    users.user_id,
-    home.user_fullName,
-    home.user_desc,
-    home.user_pic,
-    projects.projects_id,
-    projects.project_name,
-    projects.project_desc,
-    projects.project_link,
-    projects.project_pic,
-    education.preschool_name,
-    education.preschool_year,
-    education.preschool_desc,
-    education.gradeSchool_name,
-    education.gradeSchool_year,
-    education.gradeSchool_desc,
-    education.Jhighschool_name,
-    education.Jhighschool_year,
-    education.Jhighschool_desc,
-    education.Shighschool_name,
-    education.Shighschool_year,
-    education.Shighschool_desc,
-    education.University_name,
-    education.College_year,
-    education.University_desc,
-    skills.skills_id,
-    skills.skills_name,
-    skills.skills_percentage,
-    links.facebook_link,
-    links.X_link,
-    links.instagram_link,
-    links.github_link,
-    occupation.occupation_name1,
-    occupation.occupation_name2,
-    occupation.occupation_name3
+    *
 FROM
     users
 INNER JOIN home ON users.user_id = home.user_id 
@@ -501,12 +575,12 @@ INNER JOIN occupation ON users.user_id = occupation.user_id WHERE users.user_id 
 }
 
 
-  function updateEducation($user_id, $preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc){
+  function updateEducation($education_id,  $school_level, $school_name, $school_year, $school_description){
     try {
       $con = $this->opencon();
       $con ->beginTransaction();
-      $query = $con->prepare("UPDATE education SET preschool_name = ?, preschool_year = ?, preschool_desc = ?, gradeSchool_name = ?, gradeSchool_year = ?, gradeSchool_desc = ?, Jhighschool_name  = ?, Jhighschool_year  = ?, Jhighschool_desc  = ?, Shighschool_name  = ?, Shighschool_year  = ?, Shighschool_desc  = ?, University_name  = ?, College_year  = ?, University_desc = ? WHERE user_id = ?");
-      $query->execute([$preschoolName, $preschoolYear, $pre_schoolDesc, $gradeschoolName,  $gradeschoolYear, $grade_schoolDesc, $JhighschoolName, $JhighschoolYear, $Jhigh_schoolDesc, $ShighschoolName, $ShighschoolYear, $Shigh_schoolDesc, $universityName, $collegeYear , $collegeDesc, $user_id]);
+      $query = $con->prepare("UPDATE education SET school_level = ?, school_name = ? , school_year = ? , school_desc = ? WHERE education_id = ?");
+      $query->execute([$school_level, $school_name, $school_year, $school_description, $education_id]);
       $con->commit();
       return true;
     } 

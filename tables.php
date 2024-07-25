@@ -116,10 +116,6 @@ if (isset($_POST['deleteSkill'])) {
   }
 }
 
-
-
-
-
 if (isset($_POST['addSkill'])) {
 
 $skillsName =  $_POST['skillName'];
@@ -131,7 +127,32 @@ else {
   header('location:index.php?status=error');
 }
 }
+
+if(isset($_POST['addEdu'])) {
+  $school_name = $_POST['schoolName'];
+  $school_level = $_POST['schoolLevel'];
+  $school_year = $_POST['schoolYear'];
+  $school_description = $_POST['schoolDesc'];
+
+  if($con->insertEducation($id,$school_name,$school_level,$school_year,$school_description)){
+    header('location:index.php?status=success6');
+  } 
+  else {
+    header('location:index.php?status=error');
+  }
+}
+
+if (isset($_POST['deleteEdu'])) {
+  $ids = $_POST['id3'];
+  if ($con->deleteEducation($ids)) {
+      header('location:index.php?status=success');
+  }else{
+     header('location:index.php?status=error');
+  }
+}
+
 ?>
+
 
 
 
@@ -200,6 +221,7 @@ else {
         <button class="tablink" onclick="openPage('Occupation', this, 'gold')">Occupation</button>
         <button class="tablink" onclick="openPage('Add Skills', this, 'pink')">Add Skills</button>
         <button class="tablink" onclick="openPage('Add Projects', this, 'violet')">Add Project</button>
+        <button class="tablink" onclick="openPage('Add Education', this, 'firebrick')">Add Education</button>
         <div id="Home" class="tabcontent">
             <table class="table table-bordered">
                 <thead>
@@ -263,50 +285,15 @@ else {
         <table class="table table-bordered">
             <thead>
             <tr>
-            <th>Pre-School Name:</th>
-            <th>Pre-School Year:</th>
-            <th>Pre-School Description</th>
-            <th>Grade School Name:</th>
-            <th>Grade School Year:</th>
-            <th>Grade School Description</th>
-            <th>Junior High School Name:</th>
-            <th>Junior High School Year:</th>
-            <th>Junior High School Description</th>
-            <th>Senior High School Name:</th>
-            <th>Senior High School Year:</th>
-            <th>Senior High School Description</th>
-            <th>University Name:</th>
-            <th>College Year:</th>
-            <th>University Description</th>
+            <th>School Level:</th>
+            <th>School Name:</th>
+            <th>School Year:</th>
+            <th>School Description</th>
             <th>Edit</th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-        <!-- The values we must echoo!! -->
-          <td><?php echo $data['preschool_name'] ?></td>
-          <td><?php echo $data['preschool_year'] ?></td>
-          <td><?php echo $data['preschool_desc'] ?></td>
-          <td><?php echo $data['gradeSchool_name'] ?></td>
-          <td><?php echo $data['gradeSchool_year'] ?></td>
-          <td><?php echo $data['gradeSchool_desc'] ?></td>
-          <td><?php echo $data['Jhighschool_name'] ?></td>
-          <td><?php echo $data['Jhighschool_year'] ?></td>
-          <td><?php echo $data['Jhighschool_desc'] ?></td>
-          <td><?php echo $data['Shighschool_name'] ?></td>
-          <td><?php echo $data['Shighschool_year'] ?></td>
-          <td><?php echo $data['Shighschool_desc'] ?></td>
-          <td><?php echo $data['University_name'] ?></td>
-          <td><?php echo $data['College_year'] ?></td>
-          <td><?php echo $data['University_desc'] ?></td>
-
-         <td><!-- Update Button -->
-            <form action="editEducation.php" method="post" class="d-inline">
-            <input type="hidden" name="id" value="<?php echo $row['user_id']?>">
-              <button type="submit"  name="edit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to update this user? You will be redirected to another page.')"> <i class="fas fa-edit"></i> </button>
-          </form>
-        </td>
-        </tr>
+            <?php $con->getEducation($id)?>
         </tbody>
       </table>
      
@@ -390,8 +377,6 @@ else {
 
 </div>
 
-
-
     <div id="Add Skills" class="tabcontent">
     <form action="tables.php" method="post" enctype="multipart/form-data">
         <div class="form-row">
@@ -430,6 +415,35 @@ else {
           <button type="submit" class="btn btn-primary" name="addProject">Add Project</button>
         </div>
         
+      </form>
+    </div>
+
+    <div id="Add Education" class="tabcontent">
+    <form action="tables.php" method="post" enctype="multipart/form-data">
+        <div class="form-row">
+
+        <div class="form-group">
+            <label for="schoolLevel">School Level:</label>
+            <input type="text" class="form-control" id="schoolLevel" name="schoolLevel">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolName">School Name:</label>
+            <input type="text" class="form-control" id="schoolName" name="schoolName">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolYear">School Year:</label>
+            <input type="text" class="form-control" id="schoolYear" name="schoolYear">
+          </div>
+
+          <div class="form-group">
+            <label for="schoolDesc">School Description:</label>
+            <input type="text" class="form-control" id="schoolDesc" name="schoolDesc">
+          </div>
+
+          <button type="submit" class="btn btn-primary" name="addEdu">Add Education</button>
+        </div>
       </form>
     </div>
     

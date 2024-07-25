@@ -589,7 +589,7 @@
   
   /* title descr */
   .thirdMain ul li .title,
-  .thirdMain  ul li .descr {
+  .thirdMain  ul li .descr{
     background: var(--bgColor);
     position: relative;
     padding-inline: 1.5rem;
@@ -600,6 +600,11 @@
     padding-block-end: 1rem;
     font-weight: 500;
   }
+
+
+
+
+
   .thirdMain .timelines ul li .descr {
     padding-block-end: 1.5rem;
     font-weight: 300;
@@ -852,16 +857,15 @@
 
 
 .editall {
+    margin: 0;
     background-image: url(./backgrounds/wp2757832.gif);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     height: 100vh;
-    width: 100%;
     overflow: scroll;
 }
 
-/* Card Container */
 .card1 {
     width: auto;
     height: auto;
@@ -871,7 +875,7 @@
     border: 2px solid #A569BD;
     position: relative;
     top: 110px;
-    left: 55px;
+    left: 0;
     font-size: 15px;
     backdrop-filter: blur(5px) saturate(180%);
     -webkit-backdrop-filter: blur(5px) saturate(180%);

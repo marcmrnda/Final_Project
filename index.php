@@ -101,40 +101,14 @@ if(empty($_SESSION['username'])) {
 
             
         </div>
-        <button class="moreport">More Projects Here!</button>
+        <button class="moreport" href="<?php echo $data['github_link'] ?>">More Projects Here!</button>
     </section>
 
     <section class="thirdMain" id="about" data-aos="fade-up" data-aos-duration="1000">
       <h2 class="display-1">Education</h2>
       <div class="timelines">
 
-  <ul>
-    <li style="--accent-color:#41516C">
-        <div class="date"><?php echo $data['preschool_year'] ?></div>
-        <div class="title"><?php echo $data['preschool_name'] ?></div>
-        <div class="descr"><?php echo $data['preschool_desc'] ?></div>
-    </li>
-    <li style="--accent-color:#FBCA3E">
-        <div class="date"><?php echo $data['gradeSchool_year'] ?></div>
-        <div class="title"><?php echo $data['gradeSchool_name'] ?></div>
-        <div class="descr"><?php echo $data['gradeSchool_desc'] ?></div>
-    </li>
-    <li style="--accent-color:#E24A68">
-        <div class="date"><?php echo $data['Jhighschool_year'] ?></div>
-        <div class="title"><?php echo $data['Jhighschool_name'] ?></div>
-        <div class="descr"><?php echo $data['Jhighschool_desc'] ?></div>
-    </li>
-    <li style="--accent-color:#1B5F8C">
-        <div class="date"><?php echo $data['Shighschool_year'] ?></div>
-        <div class="title"><?php echo $data['Shighschool_name'] ?></div>
-        <div class="descr"><?php echo $data['Shighschool_desc'] ?></div>
-    </li>
-    <li style="--accent-color:#4CADAD">
-        <div class="date"><?php echo $data['College_year'] ?></div>
-        <div class="title"><?php echo $data['University_name'] ?></div>
-        <div class="descr"><?php echo $data['University_desc'] ?></div>
-    </li>
-</ul>
+      <?php $con->getEducationByUserId($id); ?>
 
       </div>
     </section>

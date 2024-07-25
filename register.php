@@ -22,21 +22,10 @@ if (isset($_POST['multisave'])) {
     $projectLink = $_POST['projectLink'];
     
     //Education Details//
-    $pre_school = $_POST['pre_school'];
-    $pre_schoolYear = $_POST['pre_schoolYear'];
-    $pre_schoolDesc = $_POST['pre_schoolDesc'];
-    $grade_school = $_POST['grade_school'];
-    $grade_schoolYear = $_POST['grade_schoolYear'];
-    $grade_schoolDesc = $_POST['grade_schoolDesc'];
-    $Jhigh_school =  $_POST['jhigh_school'];
-    $Jhigh_schoolYear = $_POST['jhigh_schoolYear'];
-    $Jhigh_schoolDesc = $_POST['jhigh_schoolDesc'];
-    $Shigh_school = $_POST['shigh_school'];
-    $Shigh_schoolYear = $_POST['shigh_schoolYear'];
-    $Shigh_schoolDesc = $_POST['shigh_schoolDesc'];
-    $college_school = $_POST['college_school'];
-    $collegeYear = $_POST['college_schoolYear'];
-    $collegeDesc = $_POST['college_schoolDesc'];
+    $school_level = $_POST['schoolLevel'];
+    $school_name = $_POST['schoolName'];
+    $school_year = $_POST['schoolYear'];
+    $school_description = $_POST['schoolDesc'];
 
     //Skills Details//
     $skillsName = $_POST['skillsName'];
@@ -150,7 +139,7 @@ if ($uploadOk == 0 || $uploadOk1 == 0) {
         if ($user_id) {
             $project_inserted = $con->insertProjects($user_id, $projectName, $project_description, $projectLink, $project_picture_path);
             $home_inserted = $con->insertHome($user_id, $fullName, $user_description, $profile_picture_path);
-            $education_inserted = $con->insertEducation($user_id, $pre_school, $pre_schoolYear, $pre_schoolDesc, $grade_school,  $grade_schoolYear, $grade_schoolDesc, $Jhigh_school, $Jhigh_schoolYear, $Jhigh_schoolDesc, $Shigh_school, $Shigh_schoolYear, $Shigh_schoolDesc, $college_school, $collegeYear , $collegeDesc);
+            $education_inserted = $con->insertEducation($user_id,  $school_level, $school_name, $school_year, $school_description);
             $skills_inserted = $con->insertSkills($user_id, $skillsName, $skillsPercentage);
             $link_inserted = $con->insertLink($user_id, $facebookLink, $XLink, $instagramLink, $githubLink);
             $occupation_inserted = $con->insertOccupation($user_id, $occupation1, $occupation2, $occupation3);
@@ -305,167 +294,45 @@ if ($uploadOk == 0 || $uploadOk1 == 0) {
 
                 <div class="form-step" id="step-4">
                     <div class="cards">
-                        <div class="card-header text-white">Education Page Information (Pre-School)</div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="pre_school">Pre-School Name:</label>
-                                    <input type="text" class="form-control" id="pre_school" name="pre_school">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid Pre-School Name.</div>
-                                </div>
-                
-                                <div class="form-group">
-                                    <label for="pre_schoolYear">Pre-School Year:</label>
-                                    <input type="text" class="form-control" id="pre_schoolYear" name="pre_schoolYear">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Year.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="pre_schoolDesc">Pre-School Description:</label>
-                                    <input type="text" class="form-control" id="pre_schoolDesc" name="pre_schoolDesc">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Description.</div>
-                                </div>
-
-                                  <button type="button" class="btn btn-secondary mt-3" onclick="prevSteps()">Previous</button>
-                                  <button type="button" class="btn btn-primary mt-3" onclick="nextSteps()">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-step" id="step-5">
-                    <div class="cards">
-                        <div class="card-header text-white">Education Page Information (Grade School)</div>
-                            <div class="card-body">
-                
-                                <div class="form-group">
-                                    <label for="grade_school">Grade School Name:</label>
-                                    <input type="text" class="form-control" id="grade_school" name="grade_school">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid Grade School Name.</div>
-                                </div>
-                
-                                <div class="form-group">
-                                    <label for="grade_schoolYear">Grade School Year:</label>
-                                    <input type="text" class="form-control" id="grade_schoolYear" name="grade_schoolYear">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Year.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="grade_schoolDesc">Grade School Description:</label>
-                                    <input type="text" class="form-control" id="grade_schoolDesc" name="grade_schoolDesc">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Description.</div>
-                                </div>
-
-                                  <button type="button" class="btn btn-secondary mt-3" onclick="prevSteps()">Previous</button>
-                                  <button type="button" class="btn btn-primary mt-3" onclick="nextSteps()">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-step" id="step-6">
-                    <div class="cards">
-                        <div class="card-header text-white">Education Page Information (Junior High)</div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="jhigh_school">Junior High School Name:</label>
-                                    <input type="text" class="form-control" id="jhigh_school" name="jhigh_school">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid Junior High School Name.</div>
-                                </div>
-                
-                                <div class="form-group">
-                                    <label for="jhigh_schoolYear">Junior High School Year:</label>
-                                    <input type="text" class="form-control" id="jhigh_schoolYear" name="jhigh_schoolYear">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Year.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="jhigh_schoolDesc">Junior High School Description:</label>
-                                    <input type="text" class="form-control" id="jhigh_schoolDesc" name="jhigh_schoolDesc">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Description.</div>
-                                </div>
-
-
-                                  <button type="button" class="btn btn-secondary mt-3" onclick="prevSteps()">Previous</button>
-                                  <button type="button" class="btn btn-primary mt-3" onclick="nextSteps()">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-step" id="step-7">
-                    <div class="cards">
-                        <div class="card-header text-white">Education Page Information (Senior High)</div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="shigh_school">Senior High School Name:</label>
-                                    <input type="text" class="form-control" id="shigh_school" name="shigh_school">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid Senior High School Name.</div>
-                                </div>
-                
-                                <div class="form-group">
-                                    <label for="shigh_schoolYear">Senior High School Year:</label>
-                                    <input type="text" class="form-control" id="shigh_schoolYear" name="shigh_schoolYear">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Year.</div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="shigh_schoolDesc">Senior High School Description:</label>
-                                    <input type="text" class="form-control" id="shigh_schoolDesc" name="shigh_schoolDesc">
-                                    <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid School Description.</div>
-                                </div>
-
-
-                                  <button type="button" class="btn btn-secondary mt-3" onclick="prevSteps()">Previous</button>
-                                  <button type="button" class="btn btn-primary mt-3" onclick="nextSteps()">Next</button>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="form-step" id="step-8">
-                    <div class="cards">
                         <div class="card-header text-white">Education Page Information</div>
                             <div class="card-body">
+                                
                                 <div class="form-group">
-                                    <label for="college_school">University Name:</label>
-                                    <input type="text" class="form-control" id="college_school" name="college_school">
+                                    <label for="schoolLevel">School Level:</label>
+                                    <input type="text" class="form-control" id="schoolLevel" name="schoolLevel">
                                     <div class="valid-feedback">Looks good!</div>
-                                    <div class="invalid-feedback">Please enter a valid University Name.</div>
+                                    <div class="invalid-feedback">Please enter a valid School Level.</div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="schoolName">School Name:</label>
+                                    <input type="text" class="form-control" id="schoolName" name="schoolName">
+                                    <div class="valid-feedback">Looks good!</div>
+                                    <div class="invalid-feedback">Please enter a valid School Name.</div>
                                 </div>
                 
                                 <div class="form-group">
-                                    <label for="college_schoolYear">University Year:</label>
-                                    <input type="text" class="form-control" id="college_schoolYear" name="college_schoolYear">
+                                    <label for="schoolYear">School Year:</label>
+                                    <input type="text" class="form-control" id="schoolYear" name="schoolYear">
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">Please enter a valid School Year.</div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="college_schoolDesc">University Description:</label>
-                                    <input type="text" class="form-control" id="college_schoolDesc" name="college_schoolDesc">
+                                    <label for="schoolDesc">School Description:</label>
+                                    <input type="text" class="form-control" id="schoolDesc" name="schoolDesc">
                                     <div class="valid-feedback">Looks good!</div>
                                     <div class="invalid-feedback">Please enter a valid School Description.</div>
                                 </div>
 
-
-
                                   <button type="button" class="btn btn-secondary mt-3" onclick="prevSteps()">Previous</button>
                                   <button type="button" class="btn btn-primary mt-3" onclick="nextSteps()">Next</button>
-                            </div>
+                        </div>
                     </div>
                 </div>
 
 
-                <div class="form-step" id="step-9">
+                <div class="form-step" id="step-5">
                     <div class="cards">
                         <div class="card-header text-white">Skills Page Information</div>
                             <div class="card-body">
@@ -489,7 +356,7 @@ if ($uploadOk == 0 || $uploadOk1 == 0) {
                 </div>
 
 
-                <div class="form-step" id="step-10">
+                <div class="form-step" id="step-6">
                     <div class="cards">
                         <div class="card-header text-white">Occupation Page Information</div>
                             <div class="card-body">
@@ -520,7 +387,7 @@ if ($uploadOk == 0 || $uploadOk1 == 0) {
                 </div>
 
 
-                <div class="form-step" id="step-11">
+                <div class="form-step" id="step-7">
                     <div class="cards">
                         <div class="card-header text-white">Links Information</div>
                             <div class="card-body">
